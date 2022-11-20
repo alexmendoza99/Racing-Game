@@ -35,7 +35,7 @@ int main()
     myfont.loadFromFile("font/StrangerNight.ttf");
 
     //Load all images
-    if (!background.loadFromFile("cars/Desert_Road.png")) return EXIT_FAILURE;
+    if (!background.loadFromFile("Levels/Desert_road (64 x 64).png")) return EXIT_FAILURE;
     if (!racer.loadFromFile("Cars/Player_blue (16 x 16).png")) return EXIT_FAILURE;
     if (!obs1.loadFromFile("Cars/Player_green (16 x 16).png")) return EXIT_FAILURE;
     if (!obs2.loadFromFile("Cars/Player_red (16 x 16).png")) return EXIT_FAILURE;
@@ -121,19 +121,19 @@ int main()
         //Check if accident happen
         if (((RacerX>=(Obs1X-30)) &&(RacerX<=(Obs1X+30)))&&((RacerY>=(Obs1Y-30)) &&(RacerY)<=(Obs1Y+30)))
             {
-                GameSound.stop();gameOver();
+        		gameOver();
             };
         if (((RacerX>=(Obs2X-30)) &&(RacerX<=(Obs2X+30)))&&((RacerY>=(Obs2Y-30)) &&(RacerY)<=(Obs2Y+30)))
             {
-                GameSound.stop();gameOver();
+        		gameOver();
             };
         if (((RacerX>=(Obs3X-30)) &&(RacerX<=(Obs3X+30)))&&((RacerY>=(Obs3Y-30)) &&(RacerY)<=(Obs3Y+30)))
             {
-                GameSound.stop();gameOver();
+        		gameOver();
             };
         if (((RacerX>=(Obs4X-30)) &&(RacerX<=(Obs4X+30)))&&((RacerY>=(Obs4Y-30)) &&(RacerY)<=(Obs4Y+30)))
             {
-                GameSound.stop();gameOver();
+        		gameOver();
             };
 
         //Clear and redraw position
@@ -142,18 +142,15 @@ int main()
         window.draw(Background1);
         window.draw(Racer);
         window.draw(Obs1);
-        windowpp.draw(Obs2);
+        window.draw(Obs2);
         window.draw(Obs3);
         window.draw(Obs4);
         window.draw(text);
         window.display();
     }
-    return EXIT_SUCCESS;
+    return 0;
 }
-int startGame()
-{
-    //TODO
-}
+
 //Game over
 int gameOver()
 {
@@ -178,11 +175,10 @@ int gameOver()
         window.clear();
         window.draw(Gameover);
         window.draw(text);
-        window.draw(Troll);
         window.display();
 
     }
-
+	return 0;
 }
 int getRandomNumber(int a, int b)
     {
