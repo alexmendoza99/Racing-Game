@@ -3,15 +3,22 @@ using namespace sf;
 #include <iostream>
 #include <vector>
 using namespace std;
+#include <cstdlib>
+#include <ctime>
+#include <string>
+
+const double SCRW = 800;
+const double SCRH = 600;
+
 
 int main()
 {
 	// Create a video mode object
-	VideoMode vm(1920, 1080);
+	VideoMode vm(SCRW, SCRH);
 
 	// Create and open a window for the game
 
-	RenderWindow window(vm, "Sierpinski Triangle!!", Style::Default);
+	RenderWindow window(vm, "RACING 400", Style::Default);
 	RectangleShape rect(Vector2f{20,10});
 
 	vector<Vector2f> vertices;   ///push_back stuff into us!
