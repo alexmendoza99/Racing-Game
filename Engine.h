@@ -11,9 +11,7 @@ private:
 
 	RenderWindow m_Window;
 
-	View m_MainWindow;
-	View m_HUDView;
-	View m_MenuView;
+	View m_MainView;
 
 	// The game will always be in one of these states
 	enum class State {MAIN_MENU, LEVEL_COUNTDOWN, PAUSED, PLAYING, LEVEL_WON, GAME_OVER, GAME_WON};
@@ -25,6 +23,5 @@ private:
 	void draw();
 public:
 	Engine();
-
 	void run();
 };

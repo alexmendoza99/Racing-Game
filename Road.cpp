@@ -3,7 +3,7 @@
 
 using namespace sf;
 
-int main()
+int old_main()
 {
     // The game will always be in one of four states
     enum class State { PAUSED, LEVELING_UP, GAME_OVER, PLAYING };

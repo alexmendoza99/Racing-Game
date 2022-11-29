@@ -18,6 +18,10 @@ void Engine::input()
             switch (state)
             {
             case State::MAIN_MENU:
+                if (Keyboard::isKeyPressed(Keyboard::Space))
+                {
+                    state = State::PLAYING;
+                }
                 break;
             case State::LEVEL_COUNTDOWN:
                 break;

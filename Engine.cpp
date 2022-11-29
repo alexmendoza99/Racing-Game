@@ -1,4 +1,7 @@
 #include "Engine.h"
+#include <iostream>
+
+using namespace std;
 
 
 Engine::Engine()
@@ -8,12 +11,10 @@ Engine::Engine()
     resolution.x = VideoMode::getDesktopMode().width;
     resolution.y = VideoMode::getDesktopMode().height;
 
-    RenderWindow window(VideoMode(resolution.x, resolution.y), 
-        "RACING 400!!!", Style::Default);
+    m_Window.create(VideoMode(resolution.x, resolution.y), "RACING 400!!!", Style::Default);
 
     // Create a an SFML View for the main action
-    m_MenuView.setSize(resolution);
-    m_HUDView.reset(FloatRect(0, 0, resolution.x, resolution.y));
+    m_MainView.setSize(resolution);
 }
 
 
