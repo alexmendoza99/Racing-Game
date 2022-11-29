@@ -10,7 +10,7 @@ private:
     const float START_MAX_SPEED = 700;
     const float START_MAX_FUEL = 100;
     const float STEER_SPEED = 350;
-    const float DEFAULT_Y_POS = 800;
+    const float DEFAULT_Y_POS = 700;
 
     bool m_EngineOn = false;
     

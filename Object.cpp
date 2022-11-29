@@ -8,7 +8,7 @@ using namespace sf;
 
 void Object::spawn(float startX, float startY, float startSpeed)
 {
-    m_Sprite = Sprite(TextureHolder::GetTexture("Cars\\playerCar.png"));
+    m_Sprite = Sprite(TextureHolder::GetTexture("Cars\\enemyCar.png"));
     m_Speed = startSpeed;
 
     // Initialize its location

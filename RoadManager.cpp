@@ -9,7 +9,7 @@ using namespace std;
 
 
 RoadManager::RoadManager() {
-	int heightCounter = 0;
+	int heightCounter = 600;
 	for (int i = 0; i < 100; i++)
 	{
 		m_RoadTiles.push_back(new RoadTile);
