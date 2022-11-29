@@ -9,14 +9,14 @@ using namespace std;
 
 RoadTile::RoadTile()
 {
-	m_Sprite = Sprite(TextureHolder::GetTexture("Levels\\roadtile.png"));
+	m_Sprite = Sprite(TextureHolder::GetTexture("Levels/roadtile.png"));
 	m_Sprite.setScale(5, 5);
 }
 
 
 RoadTile::RoadTile(float leftBound, float rightBound)
 {
-	m_Sprite = Sprite(TextureHolder::GetTexture("Levels\\roadtile.png"));
+	m_Sprite = Sprite(TextureHolder::GetTexture("Levels/roadtile.png"));
 	m_Sprite.setScale(5, 5);
 	m_LeftBound = leftBound;
 	m_RightBound = rightBound;

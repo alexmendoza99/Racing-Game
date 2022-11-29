@@ -11,7 +11,7 @@ PlayerCar::PlayerCar()
 
     // Associate a texture with the sprite
     // !!Watch this space!!
-    m_Sprite = Sprite(TextureHolder::GetTexture("Cars\\playerCar.png"));
+    m_Sprite = Sprite(TextureHolder::GetTexture("Cars/playerCar.png"));
 
     // Set the origin of the sprite to the center
     m_Sprite.setOrigin(7, 10);
