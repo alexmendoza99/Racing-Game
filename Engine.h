@@ -1,6 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
+#include "PlayerCar.h"
+#include "Object.h"
+#include "RoadManager.h"
 
 using namespace sf;
 
@@ -8,6 +11,12 @@ class Engine
 {
 private:
 	TextureHolder th;
+
+	RoadManager road;
+
+	PlayerCar player;
+
+	Object evilCar;
 
 	RenderWindow m_Window;
 
@@ -18,6 +27,7 @@ private:
 	// Start with the MAIN_MENU state
 	State state = State::MAIN_MENU;
 
+	void setState(State newState);
 	void input();
 	void update(float dtAsSeconds);
 	void draw();

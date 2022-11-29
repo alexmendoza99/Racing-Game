@@ -1,46 +1,51 @@
 #include "PlayerCar.h"
+#include "TextureHolder.h"
 #include <cmath>
+
 PlayerCar::PlayerCar()
 {
-    m_Speed = START_SPEED;
-    m_Fuel = START_FUEL;
-    m_MaxFuel = START_FUEL;
+    m_Speed = 0;
+    m_MaxSpeed = START_MAX_SPEED;
+    m_Fuel = START_MAX_FUEL;
+    m_MaxFuel = START_MAX_FUEL;
 
     // Associate a texture with the sprite
     // !!Watch this space!!
-    m_Texture.loadFromFile("Cars/playerCar.png");
-    m_Sprite.setTexture(m_Texture);
+    m_Sprite = Sprite(TextureHolder::GetTexture("Cars\\playerCar.png"));
 
-    // Set the origin of the sprite to the center, 
-    // for smooth rotation
-    m_Sprite.setOrigin(25, 25);
+    // Set the origin of the sprite to the center
+    m_Sprite.setOrigin(7, 10);
+    m_Sprite.setScale(5, 5);
 }
 
-void PlayerCar::spawn(IntRect road, Vector2f resolution, int tileSize)
+
+void PlayerCar::spawn(int start_pos)
 {
     // Place the player in the middle of the road
-    m_Position.x = road.width / 2;
-    m_Position.y = road.height / 2;
-
-    // Copy the details of the road to the player's m_Road
-    m_Road.left = road.left;
-    m_Road.width = road.width;
-    m_Road.top = road.top;
-    m_Road.height = road.height;
-
-    // Remember how big the tiles are in this road
-    m_TileSize = tileSize;
-
-    // Store the resolution for future use
-    m_Resolution.x = resolution.x;
-    m_Resolution.y = resolution.y;
+    m_Position.x = start_pos;
+    m_Position.y = DEFAULT_Y_POS;
 
 }
+
+
+void PlayerCar::engineOn()
+{
+    m_EngineOn = true;
+}
+
+
+void PlayerCar::setBounds(float leftBound, float rightBound)
+{
+    m_LeftBound = leftBound;
+    m_RightBound = rightBound;
+}
+
 
 Time PlayerCar::getLastHitTime()
 {
     return m_LastHit;
 }
+
 
 bool PlayerCar::hit(Time timeHit)
 {
@@ -57,134 +62,118 @@ bool PlayerCar::hit(Time timeHit)
 
 }
 
+
 FloatRect PlayerCar::getPosition()
 {
     return m_Sprite.getGlobalBounds();
 }
+
 
 Vector2f PlayerCar::getCenter()
 {
     return m_Position;
 }
 
-float PlayerCar::getRotation()
-{
-    return m_Sprite.getRotation();
-}
 
 Sprite PlayerCar::getSprite()
 {
     return m_Sprite;
 }
 
+
+float PlayerCar::getSpeed()
+{
+    return m_Speed;
+}
+
+
+float PlayerCar::getTravelDistance()
+{
+    return m_TravelDistance;
+}
+
+
 int PlayerCar::getFuel()
 {
     return m_Fuel;
 }
+
 
 void PlayerCar::moveLeft()
 {
     m_LeftPressed = true;
 }
 
+
 void PlayerCar::moveRight()
 {
     m_RightPressed = true;
 }
-void PlayerCar::moveUp()
-{
-    m_UpPressed = true;
-}
-void PlayerCar::moveDown()
-{
-    m_DownPressed = true;
-}
+
+
 void PlayerCar::stopLeft()
 {
     m_LeftPressed = false;
 }
 
+
 void PlayerCar::stopRight()
 {
     m_RightPressed = false;
 }
-void PlayerCar::stopUp()
-{
-    m_UpPressed = false;
-}
 
-void PlayerCar::stopDown()
-{
-    m_DownPressed = false;
-}
 
-void PlayerCar::update(float elapsedTime, Vector2i mousePosition)
+void PlayerCar::update(float elapsedTime)
 {
-
-    if (m_UpPressed)
+    if (m_EngineOn)
     {
-        m_Position.y -= m_Speed * elapsedTime;
-    }
-
-    if (m_DownPressed)
-    {
-        m_Position.y += m_Speed * elapsedTime;
+        if (m_Speed < m_MaxSpeed)
+        {
+            m_Speed += 1;
+        }
     }
 
     if (m_RightPressed)
     {
-        m_Position.x += m_Speed * elapsedTime;
+        m_Position.x += STEER_SPEED * elapsedTime;
     }
 
     if (m_LeftPressed)
     {
-        m_Position.x -= m_Speed * elapsedTime;
+        m_Position.x -= STEER_SPEED * elapsedTime;
     }
+
+    m_TravelDistance += m_Speed;
 
     m_Sprite.setPosition(m_Position);
 
 
-
-    // Keep the player car in the road
-    if (m_Position.x > m_Road.width - m_TileSize)
+    if (m_Position.x < m_LeftBound)
     {
-        m_Position.x = m_Road.width - m_TileSize;
+        m_Position.x = m_LeftBound;
     }
 
-    if (m_Position.x < m_Road.left + m_TileSize)
+    if (m_Position.x > m_RightBound)
     {
-        m_Position.x = m_Road.left + m_TileSize;
+        m_Position.x = m_RightBound;
     }
-
-    if (m_Position.y > m_Road.height - m_TileSize)
-    {
-        m_Position.y = m_Road.height - m_TileSize;
-    }
-
-    if (m_Position.y < m_Road.top + m_TileSize)
-    {
-        m_Position.y = m_Road.top + m_TileSize;
-    }
-    // Calculate the angle the player is facing
-    float angle = (atan2 (mousePosition.y - m_Resolution.y / 2,
-        mousePosition.x - m_Resolution.x / 2)
-        * 180) / 3.141;
-
-    m_Sprite.setRotation(angle);
+    
 }
+
 
 void PlayerCar::upgradeSpeed()
 {
     // 20% speed upgrade
-    m_Speed += (START_SPEED * .2);
+    m_MaxSpeed += (START_MAX_SPEED * .2);
 }
+
 
 void PlayerCar::upgradeFuel()
 {
     // 20% max Fuel upgrade
-    m_MaxFuel += (START_FUEL * .2);
-
+    m_MaxFuel += (START_MAX_FUEL * .2);
 }
+
 
 void PlayerCar::increaseFuelLevel(int amount)
 {

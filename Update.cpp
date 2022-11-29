@@ -17,6 +17,10 @@ void Engine::update(float dtAsSeconds)
     case State::PAUSED:
         break;
     case State::PLAYING:
+        road.update(dtAsSeconds, player.getSpeed());
+        evilCar.update(dtAsSeconds, player.getSpeed());
+        player.update(dtAsSeconds);
+        player.setBounds(road.getLeftBound(), road.getRightBound());
         break;
     case State::LEVEL_WON:
         break;

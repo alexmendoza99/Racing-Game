@@ -1,5 +1,5 @@
-#include "Road.h"
-#include "Objects.h"
+#include "RoadManager.h"
+#include "Object.h"
 
 Object* createAiCar(int numObjects, IntRect road)
 {
@@ -44,7 +44,6 @@ Object* createAiCar(int numObjects, IntRect road)
         srand((int)time(0) * i * 2);
         int type = (rand() % 3);
         // Spawn the new objects into the array
-        collisions[i].spawn(x, y, type, i);
 
     }
     return collisions;

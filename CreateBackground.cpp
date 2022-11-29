@@ -1,4 +1,4 @@
-#include "Road.h"
+#include "RoadManager.h"
 
 
 int createBackground(VertexArray& rVA, IntRect road)
@@ -7,9 +7,9 @@ int createBackground(VertexArray& rVA, IntRect road)
     // to background (in the main function)
 
     // How big is each tile/texture
-    const int TILE_SIZE = 50;
+    const int TILE_SIZE = 80;
     // we can change how many tiles we have here
-    const int TILE_TYPES = 3;
+    const int TILE_TYPES = 1;
     const int VERTS_IN_QUAD = 4;
     int worldWidth = road.width / TILE_SIZE;
     int worldHeight = road.height / TILE_SIZE;
