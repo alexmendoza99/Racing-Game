@@ -1,4 +1,5 @@
 #include "PlayerCar.h"
+#include <cmath>
 PlayerCar::PlayerCar()
 {
     m_Speed = START_SPEED;
@@ -7,7 +8,7 @@ PlayerCar::PlayerCar()
 
     // Associate a texture with the sprite
     // !!Watch this space!!
-    m_Texture.loadFromFile("graphics/playerCar.png");
+    m_Texture.loadFromFile("Cars/playerCar.png");
     m_Sprite.setTexture(m_Texture);
 
     // Set the origin of the sprite to the center, 
@@ -90,7 +91,6 @@ void PlayerCar::moveRight()
 {
     m_RightPressed = true;
 }
-/* might not need
 void PlayerCar::moveUp()
 {
     m_UpPressed = true;
@@ -99,7 +99,6 @@ void PlayerCar::moveDown()
 {
     m_DownPressed = true;
 }
-*/
 void PlayerCar::stopLeft()
 {
     m_LeftPressed = false;
@@ -109,7 +108,6 @@ void PlayerCar::stopRight()
 {
     m_RightPressed = false;
 }
-/*
 void PlayerCar::stopUp()
 {
     m_UpPressed = false;
@@ -119,10 +117,10 @@ void PlayerCar::stopDown()
 {
     m_DownPressed = false;
 }
-*/
+
 void PlayerCar::update(float elapsedTime, Vector2i mousePosition)
 {
-/* might not need
+
     if (m_UpPressed)
     {
         m_Position.y -= m_Speed * elapsedTime;
@@ -132,7 +130,7 @@ void PlayerCar::update(float elapsedTime, Vector2i mousePosition)
     {
         m_Position.y += m_Speed * elapsedTime;
     }
-*/
+
     if (m_RightPressed)
     {
         m_Position.x += m_Speed * elapsedTime;
@@ -168,7 +166,7 @@ void PlayerCar::update(float elapsedTime, Vector2i mousePosition)
         m_Position.y = m_Road.top + m_TileSize;
     }
     // Calculate the angle the player is facing
-    float angle = (atan2(mousePosition.y - m_Resolution.y / 2,
+    float angle = (atan2 (mousePosition.y - m_Resolution.y / 2,
         mousePosition.x - m_Resolution.x / 2)
         * 180) / 3.141;
 

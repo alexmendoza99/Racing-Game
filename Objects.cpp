@@ -66,10 +66,11 @@ bool Object::hit()
     return false;
 }
 
-bool Object::EngineOn()
+/*bool Object::engineOn()
 {
     return m_EngineOn;
 }
+*/
 FloatRect Object::getPosition()
 {
     return m_Sprite.getGlobalBounds();
@@ -109,8 +110,9 @@ void Object::update(float elapsedTime,
     // Move the sprite
     m_Sprite.setPosition(m_Position);
     // Face the sprite in the correct direction
-    float angle = (atan2(playerY - m_Position.y,
+    /*float angle = (playerY - m_Position.y,
         playerX - m_Position.x)
-        * 180) / 3.141;
+        * 180 / 3.141;
     m_Sprite.setRotation(angle);
+    */
 }

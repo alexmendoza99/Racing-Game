@@ -1,5 +1,5 @@
 #include "Road.h"
-int createBackground(VertexArray& rVA, IntRect arena)
+int createBackground(VertexArray& rVA, IntRect road)
 {
     // Anything we do to rVA we are really doing
     // to background (in the main function)
@@ -9,8 +9,8 @@ int createBackground(VertexArray& rVA, IntRect arena)
     // we can change how many tiles we have here
     const int TILE_TYPES = 3;
     const int VERTS_IN_QUAD = 4;
-    int worldWidth = Road.width / TILE_SIZE;
-    int worldHeight = Road.height / TILE_SIZE;
+    int worldWidth = road.width / TILE_SIZE;
+    int worldHeight = road.height / TILE_SIZE;
     // What type of primitive are we using?
     rVA.setPrimitiveType(Quads);
     // Set the size of the vertex array
