@@ -1,15 +1,15 @@
 #include "Road.h"
-#include "AiCar.h"
+#include "Objects.h"
 
-AiCar* createAiCar(int numAiCar, IntRect road)
+Object* createAiCar(int numObjects, IntRect road)
 {
 //This section will also have to change. We might not want to use the variable name AiCar and instead change it to objects that way when we are spawning in different objects ie. cars, logs etc. it’s not as confusing
-    AiCar* aiCars = new AiCar[numAiCars];
+    Object* collisions = new Object[numObjects];
     int maxY = road.height - 20;
     int minY = road.top + 20;
     int maxX = road.width - 20;
     int minX = road.left + 20;
-    for (int i = 0; i < numAiCars; i++)
+    for (int i = 0; i < numObjects; i++)
     {
 
         // Which side should the AiCars spawn
@@ -30,7 +30,7 @@ AiCar* createAiCar(int numAiCar, IntRect road)
             y = (rand() % maxY) + minY;
             break;
         case 2:
-            // top
+            // tops
             x = (rand() % maxX) + minX;
             y = minY;
             break;
@@ -44,10 +44,10 @@ AiCar* createAiCar(int numAiCar, IntRect road)
         srand((int)time(0) * i * 2);
         int type = (rand() % 3);
         // Spawn the new objects into the array
-        aiCars[i].spawn(x, y, type, i);
+        collisions[i].spawn(x, y, type, i);
 
     }
-    return aiCars;
+    return collisions;
 }
 
 /*
