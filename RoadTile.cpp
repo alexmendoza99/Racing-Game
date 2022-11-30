@@ -1,22 +1,20 @@
 #include <SFML/Graphics.hpp>
-#include "RoadManager.h"
 #include "RoadTile.h"
 #include "TextureHolder.h"
-#include <iostream>
 
 using namespace sf;
-using namespace std;
+
 
 RoadTile::RoadTile()
 {
-	m_Sprite = Sprite(TextureHolder::GetTexture("Levels/roadtile.png"));
+	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/roadtile.png"));
 	m_Sprite.setScale(5, 5);
 }
 
 
 RoadTile::RoadTile(float leftBound, float rightBound)
 {
-	m_Sprite = Sprite(TextureHolder::GetTexture("Levels/roadtile.png"));
+	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/roadtile.png"));
 	m_Sprite.setScale(5, 5);
 	m_LeftBound = leftBound;
 	m_RightBound = rightBound;
@@ -39,6 +37,25 @@ void RoadTile::setPosition(Vector2f position)
 {
 	m_Position = position;
 	m_Sprite.setPosition(position);
+}
+
+
+void RoadTile::setType(TileType newType)
+{
+	m_Type = newType;
+	switch (m_Type)
+	{
+	case TileType::START:
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/startroadtile.png"));
+		break;
+	case TileType::FINISH:
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/finishroadtile.png"));
+		break;
+	case TileType::STRAIGHT_1:
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/roadtile.png"));
+		break;
+	}
+	m_Sprite.setScale(5, 5);
 }
 
 

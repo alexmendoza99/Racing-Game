@@ -11,7 +11,7 @@ PlayerCar::PlayerCar()
 
     // Associate a texture with the sprite
     // !!Watch this space!!
-    m_Sprite = Sprite(TextureHolder::GetTexture("Cars/playerCar.png"));
+    m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/playerCar.png"));
 
     // Set the origin of the sprite to the center
     m_Sprite.setOrigin(7, 10);
@@ -25,6 +25,19 @@ void PlayerCar::spawn(int start_pos)
     m_Position.x = start_pos;
     m_Position.y = DEFAULT_Y_POS;
 
+}
+
+void PlayerCar::reset()
+{
+    m_Position.x = 0;
+    m_Position.y = DEFAULT_Y_POS;
+    m_TravelDistance = 0;
+    m_EngineOn = false;
+
+    m_Speed = 0;
+    m_MaxSpeed = START_MAX_SPEED;
+    m_Fuel = START_MAX_FUEL;
+    m_MaxFuel = START_MAX_FUEL;
 }
 
 
@@ -143,7 +156,7 @@ void PlayerCar::update(float elapsedTime)
         m_Position.x -= STEER_SPEED * elapsedTime;
     }
 
-    m_TravelDistance += m_Speed;
+    m_TravelDistance += m_Speed * elapsedTime * 0.1;
 
     m_Sprite.setPosition(m_Position);
 

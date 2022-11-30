@@ -13,10 +13,14 @@ class RoadManager
 {
 private:
 	vector<RoadTile*> m_RoadTiles;
+	bool m_RoadFinished = false;
+	float m_RoadLength = 300;
 public:
 	RoadManager();
+	void reset();
 	vector<Sprite> getSprites();
-	void update(float dtAsSeconds, float playerSpeed);
+	void update(float dtAsSeconds, float playerSpeed, float playerDistance);
 	float getLeftBound();
 	float getRightBound();
+	float getLength();
 };

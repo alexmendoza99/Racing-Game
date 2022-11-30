@@ -42,7 +42,7 @@ private:
     float m_Speed;
     float m_MaxSpeed;
 
-    float m_TravelDistance;
+    float m_TravelDistance = 0;
 
 
 // All our public functions will come next
@@ -51,6 +51,8 @@ public:
     PlayerCar();
 
     void spawn(int start_pos);
+
+    void reset();
 
     void engineOn();
 

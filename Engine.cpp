@@ -24,6 +24,10 @@ void Engine::setState(State newState)
 
     switch (newState)
     {
+    case State::MAIN_MENU:
+        road.reset();
+        player.reset();
+        break;
     case State::PLAYING:
         player.spawn(m_Window.getSize().x / 2.0);
         evilCar.spawn(m_Window.getSize().x/2.0, m_Window.getSize().y/2.0, 400);
