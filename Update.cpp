@@ -8,8 +8,8 @@ using namespace sf;
 using namespace std;
 
 int frameTimer = 0;
-
 double spawnTimer = 0.0;
+double countdownTimer = 4.0;
 
 
 void Engine::update(float dtAsSeconds)
@@ -21,6 +21,20 @@ void Engine::update(float dtAsSeconds)
     case State::MAIN_MENU:
         break;
     case State::LEVEL_COUNTDOWN:
+        countdownTimer -= dtAsSeconds;
+
+        cout << ceil(countdownTimer) << endl;
+
+        if (countdownTimer <= 0)
+        {
+            setState(State::PLAYING);
+            countdownTimer = 4.0;
+            player.engineOn();
+        }
+        objectManager.setBounds(road.getLeftBound(), road.getRightBound());
+        player.setBounds(road.getLeftBound(), road.getRightBound());
+        road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
+        player.update(dtAsSeconds);
         break;
     case State::PAUSED:
         break;

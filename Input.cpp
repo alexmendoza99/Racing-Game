@@ -18,7 +18,7 @@ void Engine::input()
         case State::MAIN_MENU:
             if (Keyboard::isKeyPressed(Keyboard::Space))
             {
-                setState(State::PLAYING);
+                setState(State::LEVEL_COUNTDOWN);
             }
             break;
         case State::LEVEL_COUNTDOWN:
@@ -41,10 +41,6 @@ void Engine::input()
             else
             {
                 player.stopRight();
-            }
-            if (Keyboard::isKeyPressed(Keyboard::Up))
-            {
-                player.engineOn();
             }
             break;
         case State::LEVEL_WON:

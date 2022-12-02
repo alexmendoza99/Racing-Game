@@ -30,7 +30,7 @@ void Engine::setState(State newState)
         player.reset();
         objectManager.clearObjects();
         break;
-    case State::PLAYING:
+    case State::LEVEL_COUNTDOWN:
         player.spawn(m_Window.getSize().x / 2.0);
         break;
     }

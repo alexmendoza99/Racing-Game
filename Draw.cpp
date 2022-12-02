@@ -16,6 +16,13 @@ void Engine::draw()
             break;
 
         case State::LEVEL_COUNTDOWN:
+            m_Window.clear(Color(0, 100, 0, 255));
+            for (Sprite sprite : road.getSprites())
+            {
+                m_Window.draw(sprite);
+            }
+            m_Window.draw(player.getSprite());
+            objectManager.drawObjects(&m_Window);
             break;
 
         case State::PAUSED:
