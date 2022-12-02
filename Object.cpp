@@ -6,19 +6,25 @@
 using namespace std;
 using namespace sf;
 
+
 void Object::spawn(float startX, float startY, float startSpeed)
 {
-    m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/enemyCar.png"));
     m_Speed = startSpeed;
 
     // Initialize its location
     m_Position.x = startX;
     m_Position.y = startY;
+}
+
+
+void Object::setSprite(String texturePath)
+{
+    m_Sprite = Sprite(TextureHolder::GetTexture(texturePath));
     // Set its origin to its center
     m_Sprite.setOrigin(0, 0);
     // Set its position
     m_Sprite.setPosition(m_Position);
-    m_Sprite.setScale(5, 5);
+    m_Sprite.setScale(4, 4);
 }
 
 
@@ -34,9 +40,15 @@ Sprite Object::getSprite()
 }
 
 
-void Object::update(float dtAsSeconds, float playerSpeed)
+void Object::collide(PlayerCar* player)
 {
-    m_Position.y -= (m_Speed - playerSpeed) * dtAsSeconds;
+
+}
+
+
+void Object::update(float dtAsSeconds, PlayerCar* player)
+{
+    m_Position.y -= (m_Speed - player->getSpeed()) * dtAsSeconds;
 
     // Move the sprite
     m_Sprite.setPosition(m_Position);
@@ -44,37 +56,5 @@ void Object::update(float dtAsSeconds, float playerSpeed)
 
 
 
-// This code should be specifically for AI Car's update, which will be an inherited class object
-/*
-void Object::update(float elapsedTime, Vector2f playerLocation)
-{
-    float playerX = playerLocation.x;
-    float playerY = playerLocation.y;
-    // Update the object's position variables
-    if (playerX > m_Position.x)
-    {
-        m_Position.x = m_Position.x +
-            m_Speed * elapsedTime;
-    }
-    if (playerY > m_Position.y)
-    {
-        m_Position.y = m_Position.y +
-            m_Speed * elapsedTime;
-    }
 
-    if (playerX < m_Position.x)
-    {
-        m_Position.x = m_Position.x -
-            m_Speed * elapsedTime;
-    }
-    if (playerY < m_Position.y)
-    {
-        m_Position.y = m_Position.y -
-            m_Speed * elapsedTime;
-    }
-
-    // Move the sprite
-    m_Sprite.setPosition(m_Position);
-}
-*/
 

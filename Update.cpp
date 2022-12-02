@@ -1,14 +1,20 @@
 #include "Engine.h"
 #include <SFML/Graphics.hpp>
 #include <sstream>
+#include <iostream>
+#include <random>
 
 using namespace sf;
+using namespace std;
 
 int frameTimer = 0;
+
+double spawnTimer = 0.0;
 
 
 void Engine::update(float dtAsSeconds)
 {
+    totalGameTime += dtAsSeconds;
     // State Specific Updates
     switch (state)
     {
@@ -19,14 +25,22 @@ void Engine::update(float dtAsSeconds)
     case State::PAUSED:
         break;
     case State::PLAYING:
-        road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
-        evilCar.update(dtAsSeconds, player.getSpeed());
-        player.update(dtAsSeconds);
+        objectManager.setBounds(road.getLeftBound(), road.getRightBound());
         player.setBounds(road.getLeftBound(), road.getRightBound());
+        road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
+        player.update(dtAsSeconds);
+        if (spawnTimer > 1.5)
+        {
+            objectManager.spawnObject();
+            spawnTimer = 0;
+        }
+        objectManager.updateObjects(dtAsSeconds, &player);
+        objectManager.manageCollisions(&player);
         if (player.getTravelDistance() > road.getLength() + 117.0)
         {
             setState(State::LEVEL_WON);
         }
+        spawnTimer += dtAsSeconds;
         break;
     case State::LEVEL_WON:
         frameTimer++;

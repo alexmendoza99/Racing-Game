@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
 #include "PlayerCar.h"
-#include "Object.h"
+#include "ObjectManager.h"
 #include "RoadManager.h"
 
 using namespace sf;
@@ -11,16 +11,14 @@ class Engine
 {
 private:
 	TextureHolder th;
-
 	RoadManager road;
-
 	PlayerCar player;
-
-	Object evilCar;
-
+	ObjectManager objectManager;
 	RenderWindow m_Window;
 
 	View m_MainView;
+
+	float totalGameTime = 0.0;
 
 	// The game will always be in one of these states
 	enum class State {MAIN_MENU, LEVEL_COUNTDOWN, PAUSED, PLAYING, LEVEL_WON, GAME_OVER, GAME_WON};

@@ -1,7 +1,6 @@
 #include "RoadManager.h"
 #include "Object.h"
 
-
 Object* createAiCar(int numObjects, IntRect road)
 {
 //This section will also have to change. We might not want to use the variable name AiCar and instead change it to objects that way when we are spawning in different objects ie. cars, logs etc. it’s not as confusing

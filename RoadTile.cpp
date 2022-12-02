@@ -8,14 +8,14 @@ using namespace sf;
 RoadTile::RoadTile()
 {
 	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/roadtile.png"));
-	m_Sprite.setScale(5, 5);
+	m_Sprite.setScale(4, 4);
 }
 
 
 RoadTile::RoadTile(float leftBound, float rightBound)
 {
 	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/roadtile.png"));
-	m_Sprite.setScale(5, 5);
+	m_Sprite.setScale(4, 4);
 	m_LeftBound = leftBound;
 	m_RightBound = rightBound;
 }
@@ -55,7 +55,7 @@ void RoadTile::setType(TileType newType)
 		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/roadtile.png"));
 		break;
 	}
-	m_Sprite.setScale(5, 5);
+	m_Sprite.setScale(4, 4);
 }
 
 

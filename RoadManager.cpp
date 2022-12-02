@@ -11,17 +11,7 @@ using namespace std;
 
 RoadManager::RoadManager() 
 {
-	int heightCounter = 500;
-	for (int i = 0; i < 4; i++)
-	{
-		m_RoadTiles.push_back(new RoadTile());
-		m_RoadTiles[i]->setPosition(Vector2f(0, heightCounter));
-		if (i == 0)
-		{
-			m_RoadTiles[i]->setType(RoadTile::START);
-		}
-		heightCounter -= 80 * 4.9; // Has to be 4.9 so the sprites slightly overlap. This prevent
-	}
+	reset();
 }
 
 
@@ -35,18 +25,19 @@ void RoadManager::reset()
 
 	m_RoadFinished = false;
 	
-	int heightCounter = 500;
+	float heightCounter = SCREEN_HEIGHT;
 	for (int i = 0; i < 4; i++)
 	{
 		m_RoadTiles.push_back(new RoadTile());
-		m_RoadTiles[i]->setPosition(Vector2f(0, heightCounter));
 		if (i == 0)
 		{
 			m_RoadTiles[i]->setType(RoadTile::START);
 		}
-		heightCounter -= 80 * 4.9; // Has to be 4.9 so the sprites slightly overlap. This prevent
+		float tileHeight = m_RoadTiles[i]->getSprite().getLocalBounds().height;
+		heightCounter -= tileHeight * 3.99;
+		cout << heightCounter << endl;
+		m_RoadTiles[i]->setPosition(Vector2f(0, heightCounter));
 	}
-
 }
 
 
@@ -63,9 +54,6 @@ vector<Sprite> RoadManager::getSprites()
 
 void RoadManager::update(float timeElapsed, float playerSpeed, float playerDistance)
 {
-	const int PIXEL_SIZE = 5;
-	const int SCREEN_HEIGHT = 900;
-
 	for (RoadTile* tile : m_RoadTiles)
 	{
 		if (m_RoadTiles[0]->getPosition().y >= SCREEN_HEIGHT && !m_RoadFinished)

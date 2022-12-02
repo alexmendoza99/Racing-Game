@@ -6,10 +6,11 @@ using namespace std;
 
 Engine::Engine()
 {
+    srand(time(NULL));
 	// Get the screen resolution and create an SFML window
     Vector2f resolution;
-    resolution.x = 1280;
-    resolution.y = 900;
+    resolution.x = 1024;
+    resolution.y = 960;
 
     m_Window.create(VideoMode(resolution.x, resolution.y), "RACING 400!!!", Style::Default);
 
@@ -27,10 +28,10 @@ void Engine::setState(State newState)
     case State::MAIN_MENU:
         road.reset();
         player.reset();
+        objectManager.clearObjects();
         break;
     case State::PLAYING:
         player.spawn(m_Window.getSize().x / 2.0);
-        evilCar.spawn(m_Window.getSize().x/2.0, m_Window.getSize().y/2.0, 400);
         break;
     }
 }

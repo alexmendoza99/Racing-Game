@@ -28,7 +28,7 @@ void Engine::draw()
                 m_Window.draw(sprite);
             }
             m_Window.draw(player.getSprite());
-            m_Window.draw(evilCar.getSprite());
+            objectManager.drawObjects(&m_Window);
             break;
 
         case State::LEVEL_WON:
@@ -38,7 +38,7 @@ void Engine::draw()
                 m_Window.draw(sprite);
             }
             m_Window.draw(player.getSprite());
-            m_Window.draw(evilCar.getSprite());
+            objectManager.drawObjects(&m_Window);
             break;
 
         case State::GAME_OVER:

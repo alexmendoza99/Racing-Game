@@ -14,8 +14,8 @@ PlayerCar::PlayerCar()
     m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/playerCar.png"));
 
     // Set the origin of the sprite to the center
-    m_Sprite.setOrigin(7, 10);
-    m_Sprite.setScale(5, 5);
+    m_Sprite.setOrigin(6, 10);
+    m_Sprite.setScale(4, 4);
 }
 
 
@@ -114,12 +114,14 @@ int PlayerCar::getFuel()
 
 void PlayerCar::moveLeft()
 {
+    if (m_EngineOn)
     m_LeftPressed = true;
 }
 
 
 void PlayerCar::moveRight()
 {
+    if (m_EngineOn) 
     m_RightPressed = true;
 }
 

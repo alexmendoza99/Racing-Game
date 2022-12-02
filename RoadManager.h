@@ -12,9 +12,11 @@ using namespace std;
 class RoadManager
 {
 private:
+	const int PIXEL_SIZE = 4;
+	const float SCREEN_HEIGHT = 960;
 	vector<RoadTile*> m_RoadTiles;
 	bool m_RoadFinished = false;
-	float m_RoadLength = 300;
+	float m_RoadLength = 1500;
 public:
 	RoadManager();
 	void reset();

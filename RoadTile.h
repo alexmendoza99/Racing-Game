@@ -8,8 +8,8 @@ class RoadTile
 private:
 	Vector2f m_Position;
 	Sprite m_Sprite;
-	float m_LeftBound = 465;
-	float m_RightBound = 810;
+	float m_LeftBound = 81 * 4;
+	float m_RightBound = 174 * 4;
 public:
 	enum TileType { START, STRAIGHT_1, FINISH };
 	TileType m_Type = TileType::STRAIGHT_1;
