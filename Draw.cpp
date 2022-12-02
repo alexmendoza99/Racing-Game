@@ -34,8 +34,8 @@ void Engine::draw()
             {
                 m_Window.draw(sprite);
             }
-            m_Window.draw(player.getSprite());
             objectManager.drawObjects(&m_Window);
+            m_Window.draw(player.getSprite());
             break;
 
         case State::LEVEL_WON:
@@ -44,8 +44,8 @@ void Engine::draw()
             {
                 m_Window.draw(sprite);
             }
-            m_Window.draw(player.getSprite());
             objectManager.drawObjects(&m_Window);
+            m_Window.draw(player.getSprite());
             break;
 
         case State::GAME_OVER:

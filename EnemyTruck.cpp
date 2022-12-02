@@ -5,10 +5,10 @@
 using namespace std;
 
 
-EnemyCar::EnemyCar()
+EnemyTruck::EnemyTruck()
 {
     yLayer = 1;
-	setSprite("Sprites/enemyCar.png");
+    setSprite("Sprites/enemytruck.png");
     m_Sprite.setOrigin(Vector2f(m_Sprite.getTexture()->getSize().x / 2.0, m_Sprite.getTexture()->getSize().y / 2.0));
     int chance = rand() % 2;
     if (chance == 0) m_AICar = true;
@@ -16,13 +16,13 @@ EnemyCar::EnemyCar()
 }
 
 
-void EnemyCar::collide(PlayerCar* player)
+void EnemyTruck::collide(PlayerCar* player)
 {
-	cout << "COLLIDE WITH CAR" << endl;
+    cout << "COLLIDE WITH TRUCK" << endl;
 }
 
 
-void EnemyCar::update(float dtAsSeconds, PlayerCar* playerCar)
+void EnemyTruck::update(float dtAsSeconds, PlayerCar* playerCar)
 {
     Object::update(dtAsSeconds, playerCar);
     float playerX = playerCar->getCenter().x;

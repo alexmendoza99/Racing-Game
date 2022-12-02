@@ -24,7 +24,8 @@ void PlayerCar::spawn(int start_pos)
     // Place the player in the middle of the road
     m_Position.x = start_pos;
     m_Position.y = DEFAULT_Y_POS;
-
+    m_LeftPressed = false;
+    m_RightPressed = false;
 }
 
 void PlayerCar::reset()

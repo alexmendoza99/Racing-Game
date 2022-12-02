@@ -16,39 +16,43 @@ public:
 
 class EnemyTruck : public Object
 {
+private:
+	float steerSpeed = 100;
+	bool m_AICar = false;
 public:
+	EnemyTruck();
 	void collide(PlayerCar* player);
-	void update(float dtAsSeconds, float playerSpeed);
+	void update(float dtAsSeconds, PlayerCar* player);
 };
 
 
 class Oil : public Object
 {
 public:
+	Oil();
 	void collide(PlayerCar* player);
-	void update(float dtAsSeconds, float playerSpeed);
 };
 
 
 class Rock : public Object
 {
 public:
+	Rock();
 	void collide(PlayerCar* player);
-	void update(float dtAsSeconds, float playerSpeed);
 };
 
 
 class Fuel : public Object
 {
 public:
+	Fuel();
 	void collide(PlayerCar* player);
-	void update(float dtAsSeconds, float playerSpeed);
 };
 
 
 class Boost : public Object
 {
 public:
+	Boost();
 	void collide(PlayerCar* player);
-	void update(float dtAsSeconds, float playerSpeed);
 };

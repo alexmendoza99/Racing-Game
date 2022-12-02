@@ -43,7 +43,7 @@ void Engine::update(float dtAsSeconds)
         player.setBounds(road.getLeftBound(), road.getRightBound());
         road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
         player.update(dtAsSeconds);
-        if (spawnTimer > 1.5)
+        if (spawnTimer > 1.0)
         {
             objectManager.spawnObject();
             spawnTimer = 0;

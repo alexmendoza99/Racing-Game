@@ -40,6 +40,12 @@ Sprite Object::getSprite()
 }
 
 
+int Object::getYLayer()
+{
+    return yLayer;
+}
+
+
 void Object::collide(PlayerCar* player)
 {
 

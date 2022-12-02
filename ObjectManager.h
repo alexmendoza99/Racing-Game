@@ -8,7 +8,7 @@ using namespace std;
 class ObjectManager
 {
 private:
-	const int SPAWN_HEIGHT = -100;
+	const int SPAWN_HEIGHT = -200;
 	vector<Object*> m_Objects;
 	float m_leftBound;
 	float m_rightBound;

@@ -35,7 +35,11 @@ void ObjectManager::drawObjects(RenderWindow* window)
 {
 	for (Object* object : m_Objects)
 	{
-		window->draw(object->getSprite());
+		if (object->getYLayer() == 0) window->draw(object->getSprite());
+	}
+	for (Object* object : m_Objects)
+	{
+		if (object->getYLayer() == 1) window->draw(object->getSprite());
 	}
 }
 
@@ -62,34 +66,44 @@ void ObjectManager::manageCollisions(PlayerCar* player)
 void ObjectManager::spawnObject()
 {
 	// Get a random number
-	int randomID = 0;
+	int randomID = rand() % 6;
 	float randomX = (float)(rand() % (int)(m_rightBound - m_leftBound)) + m_leftBound;
 
 	if (randomID == CAR)
 	{
 		EnemyCar* newEnemyCar = new EnemyCar;
 		m_Objects.push_back(newEnemyCar);
-		newEnemyCar->spawn(randomX, SPAWN_HEIGHT, 400);
+		newEnemyCar->spawn(randomX, SPAWN_HEIGHT, 500);
 	}
 	else if (randomID == TRUCK)
 	{
-
+		EnemyTruck* newEnemyTruck = new EnemyTruck;
+		m_Objects.push_back(newEnemyTruck);
+		newEnemyTruck->spawn(randomX, SPAWN_HEIGHT, 485);
 	}
 	else if (randomID == OIL)
 	{
-
+		Oil* newOil = new Oil;
+		m_Objects.push_back(newOil);
+		newOil->spawn(randomX, SPAWN_HEIGHT, 0);
 	}
 	else if (randomID == ROCK)
 	{
-
+		Rock* newRock = new Rock;
+		m_Objects.push_back(newRock);
+		newRock->spawn(randomX, SPAWN_HEIGHT, 0);
 	}
 	else if (randomID == FUEL)
 	{
-
+		Fuel* newFuel = new Fuel;
+		m_Objects.push_back(newFuel);
+		newFuel->spawn(randomX, SPAWN_HEIGHT, 0);
 	}
 	else if (randomID == BOOST)
 	{
-
+		Boost* newBoost = new Boost;
+		m_Objects.push_back(newBoost);
+		newBoost->spawn(randomX, SPAWN_HEIGHT, 0);
 	}
 }
 
