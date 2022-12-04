@@ -5,7 +5,8 @@
 
 using namespace std;
 
-SoundManager soundeffects;
+SoundManager soundEffects;
+Sound explosion;
 
 Engine::Engine()
 {
@@ -36,7 +37,7 @@ void Engine::setState(State newState)
     case State::LEVEL_COUNTDOWN:
         player.spawn(m_Window.getSize().x / 2.0);
         //sound test
-        void Explosion();
+        explosion.play();
         
         break;
     }
@@ -47,7 +48,7 @@ void Engine::run()
 {
     Clock clock;
     while (m_Window.isOpen())
-    {   
+    {
         Time dt = clock.restart();
         float dtAsSeconds = dt.asSeconds();
 

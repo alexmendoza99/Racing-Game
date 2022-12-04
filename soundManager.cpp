@@ -14,6 +14,7 @@ SoundManager::SoundManager() {
     if (!explosionSB.loadFromFile("sound/test.wav")) {
         std::cout << "ERROR: sound/explosion.wav didn't load" << endl;
     } else {
+        Sound explosion;
         explosion.setBuffer(explosionSB);
     }
 }
