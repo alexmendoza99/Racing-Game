@@ -3,16 +3,25 @@
 #include <iostream>
 #include <SFML/Audio.hpp>
 
+using namespace sf;
+
 class SoundManager {
 public:
     SoundManager();
 
     void Racing();
-    void Explosion();
+    void CarEngine();
+    void GameOver();
 
 private:
-    sf::SoundBuffer racingSB;
-    sf::Sound racing;
-    sf::SoundBuffer explosionSB;
-    sf::Sound explosion;
+    SoundBuffer racingSB;
+    Sound explode;
+
+    SoundBuffer carEngineSB;
+    Sound carEngine;
+
+    SoundBuffer explodeSB;
+    Sound explode;
+
+
 };

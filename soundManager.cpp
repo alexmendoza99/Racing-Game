@@ -11,19 +11,33 @@ SoundManager::SoundManager() {
         racing.setBuffer(racingSB);
     }
 
-    if (!explosionSB.loadFromFile("sound/test.wav")) {
+    if (!carEngineSB.loadFromFile("sound/CarEngine.wav")) {
         std::cout << "ERROR: sound/explosion.wav didn't load" << endl;
     } else {
-        Sound explosion;
-        explosion.setBuffer(explosionSB);
+        Sound carEngine;
+        carEngine.setBuffer(carEngineSB);
     }
+     if (!explodeSB.loadFromFile("sound/CarEngine.wav")) {
+        std::cout << "ERROR: sound/explosion.wav didn't load" << endl;
+    } else {
+        Sound explode;
+        explode.setBuffer(explodeSB);
+    }
+    
+
 }
 
 //Functions
 void SoundManager::Racing() {
+    racing.setVolume(70);
     racing.play();
 }
 
-void SoundManager::Explosion() {
-    explosion.play();
+void SoundManager::CarEngine() {
+    carEngine.setVolume(50);
+    carEngine.play();
+}
+
+void SoundManager::GameOver() {
+    explode.play();
 }
