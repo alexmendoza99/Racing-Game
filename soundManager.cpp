@@ -5,13 +5,13 @@ using namespace sf;
 
 // Constructor
 SoundManager::SoundManager() {
-    if (!racingSB.loadFromFile("sound/racing.wav")) {
+    if (!racingSB.loadFromFile("sound/test.wav")) {
         std::cout << "ERROR: sound/racing.wav didn't load" << endl;
     } else {
         racing.setBuffer(racingSB);
     }
 
-    if (!explosionSB.loadFromFile("sound/explosion.wav")) {
+    if (!explosionSB.loadFromFile("sound/test.wav")) {
         std::cout << "ERROR: sound/explosion.wav didn't load" << endl;
     } else {
         explosion.setBuffer(explosionSB);

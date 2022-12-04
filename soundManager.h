@@ -1,64 +1,18 @@
-#ifndef SOUND_PLAYER_H
-#define SOUND_PLAYER_H
+#pragma once
 
 #include <iostream>
-#include <cstring>
-#include <vector>
-#include <thread>
-#include <mutex>
-#include "SFML/Audio.hpp"
+#include <SFML/Audio.hpp>
 
-using namespace std;
-using namespace sf;
+class SoundManager {
+public:
+    SoundManager();
 
+    void Racing();
+    void Explosion();
 
-struct SoundPlayer {
-
-        // Code of soundtrack to reproduce
-        int currentSoundtrack;
-
-         // Control the volume of the effects and the music
-        int volumeEffects, volumeMusic;
-
-        // Vector of soundtracks of the game
-        vector<unique_ptr<Music>> soundTracks;
-
-        // Vector with all the sound effects to reproduce
-        vector<unique_ptr<Music>> soundEffects;
-
-        // Vector with the titles of the soundtracks
-        string titleSoundtracks[10];
-
-        // Control if the soundtrack has been change recently
-        bool soundtrackChanged;
-
-        // Mutex to control the load of the soundtracks and sound effects
-        mutex loaderSounds;
-
-
-
-        /**
-         * Default constructor
-         */
-        SoundPlayer(const int volMusic, const int volEffects);
-
-
-
-        /**
-         * Load all the soundtracks of the game from the xml configuration file of the soundtracks
-         * @param pathFile is the xml configuration file of the soundtracks
-         */
-        void loadSoundtracksOfGame(const string pathFile);
-
-
-
-        /**
-         * Load all the soundtracks of the game from the xml configuration file of the sound effects
-         * @param pathFile is the xml configuration file of the sound effects
-         */
-        void loadSoundEffectsOfGame(const string pathFile);
-
+private:
+    sf::SoundBuffer racingSB;
+    sf::Sound racing;
+    sf::SoundBuffer explosionSB;
+    sf::Sound explosion;
 };
-
-
-#endif // SOUND_PLAYER_H

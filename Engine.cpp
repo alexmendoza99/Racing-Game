@@ -1,9 +1,11 @@
 #include "Engine.h"
+#include "soundManager.h"
 #include <iostream>
 #include <SFML/Audio.hpp>
 
 using namespace std;
 
+SoundManager soundeffects;
 
 Engine::Engine()
 {
@@ -33,6 +35,8 @@ void Engine::setState(State newState)
         break;
     case State::LEVEL_COUNTDOWN:
         player.spawn(m_Window.getSize().x / 2.0);
+        //sound test
+        void Explosion();
         
         break;
     }
