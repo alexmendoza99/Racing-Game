@@ -4,6 +4,7 @@
 #include "PlayerCar.h"
 #include "ObjectManager.h"
 #include "RoadManager.h"
+#include "soundManager.h"
 
 using namespace sf;
 
@@ -15,6 +16,7 @@ private:
 	PlayerCar player;
 	ObjectManager objectManager;
 	RenderWindow m_Window;
+	SoundManager soundManager;
 
 	View m_MainView;
 

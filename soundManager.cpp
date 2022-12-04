@@ -5,7 +5,7 @@ using namespace sf;
 
 // Constructor
 SoundManager::SoundManager() {
-    if (!racingSB.loadFromFile("sound/test.wav")) {
+    if (!racingSB.loadFromFile("sound/Racing.wav")) {
         std::cout << "ERROR: sound/racing.wav didn't load" << endl;
     } else {
         racing.setBuffer(racingSB);
