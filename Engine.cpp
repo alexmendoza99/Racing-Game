@@ -37,6 +37,7 @@ void Engine::setState(State newState)
         break;
     case State::PLAYING:
         soundManager.Racing();
+        soundManager.CarEngine();
         break;
     case State::PLAYER_DIED:
         break;
