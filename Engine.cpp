@@ -36,9 +36,10 @@ void Engine::setState(State newState)
         player.spawn(m_Window.getSize().x / 2.0);
         //sound test
         soundManager.Racing();
+        soundManager.CarEngine();
         break;
     case State::PLAYER_DIED:
-        soundManager.GameOver();
+        soundManager.Crash();
         break;
     }
 }

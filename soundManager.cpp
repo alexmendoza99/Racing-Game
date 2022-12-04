@@ -35,9 +35,10 @@ void SoundManager::Racing() {
 
 void SoundManager::CarEngine() {
     carEngine.setVolume(50);
+    carEngine.setLoop(true);
     carEngine.play();
 }
 
-void SoundManager::GameOver() {
+void SoundManager::Crash() {
     explode.play();
 }

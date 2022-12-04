@@ -11,11 +11,11 @@ public:
 
     void Racing();
     void CarEngine();
-    void GameOver();
+    void Crash();
 
 private:
     SoundBuffer racingSB;
-    Sound explode;
+    Sound racing;
 
     SoundBuffer carEngineSB;
     Sound carEngine;
