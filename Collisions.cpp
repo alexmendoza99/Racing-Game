@@ -1,5 +1,6 @@
 #include "RoadManager.h"
 #include "Object.h"
+#include <SFML/Audio.hpp>
 
 Object* createAiCar(int numObjects, IntRect road)
 {
