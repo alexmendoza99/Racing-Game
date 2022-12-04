@@ -9,7 +9,7 @@ using namespace std;
 
 int frameTimer = 0;
 double spawnTimer = 0.0;
-double countdownTimer = 4.0;
+double countdownTimer = 9.0;
 double gameOverTimer = 2.0;
 
 
@@ -29,7 +29,7 @@ void Engine::update(float dtAsSeconds)
         if (countdownTimer <= 0)
         {
             setState(State::PLAYING);
-            countdownTimer = 4.0;
+            countdownTimer = 9.0;
             player.engineOn();
         }
         objectManager.setBounds(road.getLeftBound(), road.getRightBound());

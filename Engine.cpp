@@ -34,9 +34,9 @@ void Engine::setState(State newState)
         break;
     case State::LEVEL_COUNTDOWN:
         player.spawn(m_Window.getSize().x / 2.0);
-        //sound test
+        break;
+    case State::PLAYING:
         soundManager.Racing();
-        
         break;
     case State::PLAYER_DIED:
         break;

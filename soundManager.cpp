@@ -20,6 +20,8 @@ SoundManager::SoundManager() {
 }
 
 //Functions
+
+
 void SoundManager::Racing() {
     racing.play();
 }
