@@ -23,15 +23,19 @@ void ObjectManager::setBounds(float leftBound, float rightBound)
 
 void ObjectManager::updateObjects(float dtAsSeconds, PlayerCar* player)
 {
-	for (Object* object : m_Objects)
+	for (int i = 0; i < m_Objects.size(); i++)
 	{
+		Object* object = m_Objects[i];
 		object->update(dtAsSeconds, player);
+		if (!object->m_Alive)
+		{
+			m_Objects.erase(m_Objects.begin() + i);
+		}
 	}
 }
 
 
 void ObjectManager::drawObjects(RenderWindow* window)
-
 {
 	for (Object* object : m_Objects)
 	{
@@ -44,7 +48,7 @@ void ObjectManager::drawObjects(RenderWindow* window)
 }
 
 
-void ObjectManager::manageCollisions(PlayerCar* player)
+void ObjectManager::manageCollisions(float gameTimer, PlayerCar* player)
 {
 	for (Object* object : m_Objects)
 	{
@@ -56,7 +60,7 @@ void ObjectManager::manageCollisions(PlayerCar* player)
 		{
 			if ((playerBox.top + playerBox.height) > objectBox.top && playerBox.top < (objectBox.top + objectBox.height))
 			{
-				object->collide(player);
+				object->collide(gameTimer, player);
 			}
 		}
 	}
@@ -97,13 +101,13 @@ void ObjectManager::spawnObject()
 	{
 		Fuel* newFuel = new Fuel;
 		m_Objects.push_back(newFuel);
-		newFuel->spawn(randomX, SPAWN_HEIGHT, 0);
+		newFuel->spawn(randomX, SPAWN_HEIGHT, 300);
 	}
 	else if (randomID == BOOST)
 	{
 		Boost* newBoost = new Boost;
 		m_Objects.push_back(newBoost);
-		newBoost->spawn(randomX, SPAWN_HEIGHT, 0);
+		newBoost->spawn(randomX, SPAWN_HEIGHT, 300);
 	}
 }
 

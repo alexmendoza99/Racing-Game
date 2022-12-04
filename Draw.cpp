@@ -38,6 +38,15 @@ void Engine::draw()
             m_Window.draw(player.getSprite());
             break;
 
+        case State::PLAYER_DIED:
+            m_Window.clear(Color(0, 100, 0, 255));
+            for (Sprite sprite : road.getSprites())
+            {
+                m_Window.draw(sprite);
+            }
+            objectManager.drawObjects(&m_Window);
+            break;
+
         case State::LEVEL_WON:
             m_Window.clear(Color(0, 100, 0, 255));
             for (Sprite sprite : road.getSprites())

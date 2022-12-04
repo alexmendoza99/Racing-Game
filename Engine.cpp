@@ -33,6 +33,8 @@ void Engine::setState(State newState)
     case State::LEVEL_COUNTDOWN:
         player.spawn(m_Window.getSize().x / 2.0);
         break;
+    case State::PLAYER_DIED:
+        break;
     }
 }
 

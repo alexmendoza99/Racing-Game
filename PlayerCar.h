@@ -36,13 +36,18 @@ private:
     int m_MaxFuel;
 
     // When was the player last hit
-    Time m_LastHit;
+    float m_LastHit;
 
     // Forward Speed used by other objects and road to move
     float m_Speed;
     float m_MaxSpeed;
 
+    const float SLIP_TIME = 0.75;
+    float slipTimer = 0.0;
+
     float m_TravelDistance = 0;
+
+    bool m_Dead = false;
 
 
 // All our public functions will come next
@@ -59,10 +64,17 @@ public:
     void setBounds(float leftBound, float rightBound);
     
     // Handle the player getting hit by a objects
-    bool hit(Time timeHit);
+    // Only activates slip no matter the conditions
+    void slip(float timeHit);
+
+    //Instantly Kills no matter the conditions
+    void killHit();
+
+    // Causes Slip and then Kill if Slipping
+    void hit(float timeHit);
 
     // How long ago was the player last hit
-    Time getLastHitTime();
+    float getLastHitTime();
 
     // Where is the player
     FloatRect getPosition();
@@ -103,5 +115,7 @@ public:
     // Increase the maximum amount of Fuel the player can have
     void increaseFuelLevel(int amount);
 
-    
+    void setDeath(bool isDead);
+
+    bool isDead();
 };

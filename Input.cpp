@@ -43,6 +43,8 @@ void Engine::input()
                 player.stopRight();
             }
             break;
+        case State::PLAYER_DIED:
+            break;
         case State::LEVEL_WON:
             break;
         case State::GAME_OVER:

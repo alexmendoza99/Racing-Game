@@ -15,7 +15,12 @@ Oil::Oil()
 }
 
 
-void Oil::collide(PlayerCar* player)
+void Oil::collide(float gameTime, PlayerCar* player)
 {
-    cout << "COLLIDE WITH OIL" << endl;
+    if (!m_PlayerCollided)
+    {
+        cout << "COLLIDE WITH OIL" << endl;
+        m_PlayerCollided = true;
+        player->slip(gameTime);
+    }
 }

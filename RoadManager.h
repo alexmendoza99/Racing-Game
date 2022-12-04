@@ -16,7 +16,7 @@ private:
 	const float SCREEN_HEIGHT = 960;
 	vector<RoadTile*> m_RoadTiles;
 	bool m_RoadFinished = false;
-	float m_RoadLength = 1500;
+	float m_RoadLength = 2500;
 public:
 	RoadManager();
 	void reset();

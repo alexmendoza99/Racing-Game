@@ -16,11 +16,12 @@ protected:
 
     // Public prototypes go here    
 public:
+    bool m_Alive = true;
     void spawn(float startX, float startY, float startSpeed);
     void setSprite(String texturePath);
     FloatRect getPosition();
     Sprite getSprite();
     int getYLayer();
-    virtual void collide(PlayerCar* player);
+    virtual void collide(float gameTime, PlayerCar* player);
     virtual void update(float dtAsSeconds, PlayerCar* player);
 };

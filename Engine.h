@@ -21,7 +21,7 @@ private:
 	float totalGameTime = 0.0;
 
 	// The game will always be in one of these states
-	enum class State {MAIN_MENU, LEVEL_COUNTDOWN, PAUSED, PLAYING, LEVEL_WON, GAME_OVER, GAME_WON};
+	enum class State {MAIN_MENU, LEVEL_COUNTDOWN, PAUSED, PLAYING, PLAYER_DIED, LEVEL_WON, GAME_OVER, GAME_WON};
 	// Start with the MAIN_MENU state
 	State state = State::MAIN_MENU;
 

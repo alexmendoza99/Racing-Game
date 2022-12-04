@@ -34,6 +34,7 @@ void PlayerCar::reset()
     m_Position.y = DEFAULT_Y_POS;
     m_TravelDistance = 0;
     m_EngineOn = false;
+    m_Dead = false;
 
     m_Speed = 0;
     m_MaxSpeed = START_MAX_SPEED;
@@ -55,23 +56,36 @@ void PlayerCar::setBounds(float leftBound, float rightBound)
 }
 
 
-Time PlayerCar::getLastHitTime()
+float PlayerCar::getLastHitTime()
 {
     return m_LastHit;
 }
 
 
-bool PlayerCar::hit(Time timeHit)
+void PlayerCar::slip(float timeHit)
 {
-    if (timeHit.asMilliseconds() - m_LastHit.asMilliseconds() > 200)// 2 tenths of second
+    m_Sprite.setRotation(45);
+    m_LastHit = timeHit;
+    slipTimer = 1.0;
+    m_Fuel -= 10;
+}
+
+
+void PlayerCar::killHit()
+{
+    setDeath(true);
+}
+
+
+void PlayerCar::hit(float timeHit)
+{
+    if (timeHit - m_LastHit > 1.0)
     {
-        m_LastHit = timeHit;
-        m_Fuel -= 10;
-        return true;
+        slip(timeHit);
     }
     else
     {
-        return false;
+        killHit();
     }
 
 }
@@ -174,6 +188,14 @@ void PlayerCar::update(float elapsedTime)
         m_Position.x = m_RightBound;
     }
     
+    if (slipTimer > 0.0)
+    {
+        slipTimer -= elapsedTime;
+    }
+    else
+    {
+        m_Sprite.setRotation(0);
+    }
 }
 
 
@@ -200,4 +222,20 @@ void PlayerCar::increaseFuelLevel(int amount)
     {
         m_Fuel = m_MaxFuel;
     }
+}
+
+
+void PlayerCar::setDeath(bool isDead)
+{
+    m_Dead = isDead;
+    if (isDead)
+    {
+        m_Speed = 0;
+    }
+}
+
+
+bool PlayerCar::isDead()
+{
+    return m_Dead;
 }

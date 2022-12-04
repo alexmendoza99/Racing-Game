@@ -13,7 +13,8 @@ Fuel::Fuel()
 }
 
 
-void Fuel::collide(PlayerCar* player)
+void Fuel::collide(float gameTime, PlayerCar* player)
 {
     cout << "COLLIDE WITH FUEL" << endl;
+    m_Alive = false;
 }

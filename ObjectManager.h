@@ -27,7 +27,7 @@ public:
 	void setBounds(float leftBound, float rightBound);
 	void updateObjects(float dtAsSeconds, PlayerCar* player);
 	void drawObjects(RenderWindow* window);
-	void manageCollisions(PlayerCar* player);
+	void manageCollisions(float gameTimer, PlayerCar* player);
 	void spawnObject();
 	void clearObjects();
 };

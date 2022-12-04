@@ -16,9 +16,11 @@ EnemyCar::EnemyCar()
 }
 
 
-void EnemyCar::collide(PlayerCar* player)
+void EnemyCar::collide(float gameTime, PlayerCar* player)
 {
 	cout << "COLLIDE WITH CAR" << endl;
+    m_Alive = false;
+    player->hit(gameTime);
 }
 
 
