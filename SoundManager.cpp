@@ -1,4 +1,4 @@
-#include "soundManager.h"
+#include "SoundManager.h"
 
 using namespace std;
 using namespace sf;
