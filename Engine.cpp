@@ -1,10 +1,11 @@
 #include "Engine.h"
-#include "soundManager.h"
+#include "SoundManager.h"
 #include <iostream>
 #include <SFML/Audio.hpp>
 
 using namespace std;
 
+Text infoText;
 
 Engine::Engine()
 {
@@ -36,7 +37,11 @@ void Engine::setState(State newState)
         player.spawn(m_Window.getSize().x / 2.0);
         //sound test
         soundManager.Racing();
-        soundManager.CarEngine();
+        //soundManager.CarEngine();
+        infoText.setString("Score: ");
+        infoText.setCharacterSize(30);
+        infoText.setColor(Color::White);
+        infoText.setPosition(10,10);
         break;
     case State::PLAYER_DIED:
         soundManager.Crash();

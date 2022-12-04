@@ -4,7 +4,8 @@
 #include "PlayerCar.h"
 #include "ObjectManager.h"
 #include "RoadManager.h"
-#include "soundManager.h"
+#include "SoundManager.h"
+#include "Score.h"
 
 using namespace sf;
 
@@ -17,6 +18,8 @@ private:
 	ObjectManager objectManager;
 	RenderWindow m_Window;
 	SoundManager soundManager;
+	Score score;
+	Text infoText;
 
 	View m_MainView;
 
