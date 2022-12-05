@@ -14,8 +14,9 @@ private:
     int fuel;
     float playerRatio;
     Font font;
-    Font gameOverFont;
+    Font textFont;
     Text displayFont;
+    Text displayTextFont;
     stringstream s;
     //1
     Sprite sideMap;

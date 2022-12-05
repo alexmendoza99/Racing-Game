@@ -5,12 +5,11 @@ using namespace std;
 using namespace sf;
 
 UI::UI(){
-    if (!font.loadFromFile("font/Lato-Black.ttf")) {
-        cout << "ERROR: font/Lato-Black.ttf didn't load" << endl;
+    if (!font.loadFromFile("font/ARCADECLASSIC.ttf")) {
+        cout << "ERROR: font/ARCADECLASSIC.ttf didn't load" << endl;
     }
-    if (!gameOverFont.loadFromFile("font/StrangerNight.ttf"))
-    {
-        cout << "ERROR: font/StrangerNight.ttf didn'r load" << endl;
+    if (!textFont.loadFromFile("font/ARCADECLASSIC.ttf")) {
+        cout << "ERROR: font/ARCADECLASSIC.ttf didn't load" << endl;
     }
 };
 
@@ -74,41 +73,62 @@ void UI::drawFuelLabel(RenderWindow* window)
 
 void UI::drawGameOver(RenderWindow* window)
 {
-    stringstream s;
+    stringstream sA;
+    stringstream sB;
     
-    displayFont.setFont(gameOverFont);
-    displayFont.setCharacterSize(30);
+    displayFont.setFont(font);
+    displayFont.setCharacterSize(150);
     displayFont.setColor(Color::Red);
-    displayFont.setPosition(512,480);
-    s << "GAME OVER" << endl;
-    displayFont.setString(s.str());
+    displayFont.setPosition(200,280);
+    sA << "GAME OVER" << endl;
+    displayFont.setString(sA.str());
     window->draw(displayFont);
+
+
+    displayTextFont.setFont(textFont);
+    displayTextFont.setCharacterSize(80);
+    displayTextFont.setColor(Color::Red);
+    displayTextFont.setPosition(150,500);
+    sB << "press space to play again" << endl;
+    displayTextFont.setString(sB.str());
+    window->draw(displayTextFont);
 }
 void UI::drawGameWon(RenderWindow* window)
 {
-    stringstream s;
+    stringstream s1;
+    stringstream s2;
     
-    displayFont.setFont(gameOverFont);
-    displayFont.setCharacterSize(30);
+    displayFont.setFont(font);
+    displayFont.setCharacterSize(100);
     displayFont.setColor(Color::Blue);
-    displayFont.setPosition(512,480);
-    s << "WINNER" << endl;
-    displayFont.setString(s.str());
+    displayFont.setPosition(200,280);
+    s1 << "WINNER" << endl;
+    displayFont.setString(s1.str());
     window->draw(displayFont);
+
+    //display players score here
 }
 
 
 void UI::drawStartMenu(RenderWindow* window)
 {
-     stringstream s;
+     stringstream s1;
+     stringstream s2;
     
-    displayFont.setFont(gameOverFont);
-    displayFont.setCharacterSize(30);
+    displayFont.setFont(font);
+    displayFont.setCharacterSize(100);
     displayFont.setColor(Color::Green);
-    displayFont.setPosition(512,480);
-    s << "Racing 400!!!" << endl;
-    s << "press space to start" << endl;
-    displayFont.setString(s.str());
+    displayFont.setPosition(200,280);
+    s1 << "Racing 400!!!" << endl;
+    displayFont.setString(s1.str());
     window->draw(displayFont);
+
+    displayTextFont.setFont(textFont);
+    displayTextFont.setCharacterSize(80);
+    displayTextFont.setColor(Color::Green);
+    displayTextFont.setPosition(150,500);
+    s2 << "press space to start" << endl;
+    displayTextFont.setString(s2.str());
+    window->draw(displayTextFont);
 }
 
