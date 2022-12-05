@@ -84,6 +84,19 @@ void UI::drawGameOver(RenderWindow* window)
     displayFont.setString(s.str());
     window->draw(displayFont);
 }
+void UI::drawGameWon(RenderWindow* window)
+{
+    stringstream s;
+    
+    displayFont.setFont(gameOverFont);
+    displayFont.setCharacterSize(30);
+    displayFont.setColor(Color::Blue);
+    displayFont.setPosition(512,480);
+    s << "WINNER" << endl;
+    displayFont.setString(s.str());
+    window->draw(displayFont);
+}
+
 
 void UI::drawStartMenu(RenderWindow* window)
 {

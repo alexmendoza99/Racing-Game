@@ -42,6 +42,9 @@ public:
     void drawRightSide(RenderWindow* window);
     void drawGameOver(RenderWindow* window);
     void drawStartMenu(RenderWindow* window);
+    void drawGameWon(RenderWindow* window);
+    //need to code still
+    void drawCountDown(RenderWindow* window);
 
     
 };

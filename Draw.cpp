@@ -51,6 +51,7 @@ void Engine::draw()
                 m_Window.draw(sprite);
             }
             objectManager.drawObjects(&m_Window);
+            UI.drawGameOver(&m_Window);
             break;
 
         case State::LEVEL_WON:
@@ -64,9 +65,11 @@ void Engine::draw()
             break;
 
         case State::GAME_OVER:
+           
             break;
 
         case State::GAME_WON:
+            UI.drawGameWon(&m_Window);
             break;
 
     }
