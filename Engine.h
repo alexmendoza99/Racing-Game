@@ -6,6 +6,7 @@
 #include "RoadManager.h"
 #include "MusicManager.h"
 #include "Score.h"
+#include "UI.h"
 
 using namespace sf;
 
@@ -18,6 +19,7 @@ private:
 	ObjectManager objectManager;
 	RenderWindow m_Window;
 	MusicManager musicManager;
+	UI UI;
 	Score score;
 	Text infoText;
 

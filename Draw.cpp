@@ -36,6 +36,7 @@ void Engine::draw()
             }
             objectManager.drawObjects(&m_Window);
             m_Window.draw(player.getSprite());
+            UI.drawSideMap(&m_Window);
             break;
 
         case State::PLAYER_DIED:
