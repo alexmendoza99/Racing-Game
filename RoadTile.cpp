@@ -7,14 +7,14 @@ using namespace sf;
 
 RoadTile::RoadTile()
 {
-	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/roadtile.png"));
+	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/ocean_1.png"));
 	m_Sprite.setScale(4, 4);
 }
 
 
 RoadTile::RoadTile(float leftBound, float rightBound)
 {
-	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/roadtile.png"));
+	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/ocean_1.png"));
 	m_Sprite.setScale(4, 4);
 	m_LeftBound = leftBound;
 	m_RightBound = rightBound;
@@ -46,13 +46,13 @@ void RoadTile::setType(TileType newType)
 	switch (m_Type)
 	{
 	case TileType::START:
-		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/startroadtile.png"));
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/ocean_start.png"));
 		break;
 	case TileType::FINISH:
-		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/finishroadtile.png"));
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/ocean_finish.png"));
 		break;
 	case TileType::STRAIGHT_1:
-		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/roadtile.png"));
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/ocean_1.png"));
 		break;
 	}
 	m_Sprite.setScale(4, 4);
