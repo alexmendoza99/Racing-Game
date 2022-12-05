@@ -36,6 +36,8 @@ private:
 	void input();
 	void update(float dtAsSeconds);
 	void draw();
+
+	void drawGameplay();
 public:
 	Engine();
 	void run();
