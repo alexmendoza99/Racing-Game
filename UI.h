@@ -14,6 +14,7 @@ private:
     int fuel;
     float playerRatio;
     Font font;
+    Font gameOverFont;
     Text displayFont;
     stringstream s;
     //1
@@ -39,7 +40,8 @@ public:
     void drawScoreLabel(RenderWindow* window);
     void drawMapMarker(RenderWindow* window);
     void drawRightSide(RenderWindow* window);
-    void loadText(Text& displayFont);
+    void drawGameOver(RenderWindow* window);
+    void drawStartMenu(RenderWindow* window);
 
     
 };

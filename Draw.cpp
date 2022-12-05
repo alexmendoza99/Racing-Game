@@ -13,6 +13,7 @@ void Engine::draw()
     switch (state)
     {
         case State::MAIN_MENU:
+            UI.drawStartMenu(&m_Window);
             break;
 
         case State::LEVEL_COUNTDOWN:

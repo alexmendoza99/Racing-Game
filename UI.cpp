@@ -5,8 +5,12 @@ using namespace std;
 using namespace sf;
 
 UI::UI(){
-     if (!font.loadFromFile("font/Lato-Black.ttf")) {
+    if (!font.loadFromFile("font/Lato-Black.ttf")) {
         cout << "ERROR: font/Lato-Black.ttf didn't load" << endl;
+    }
+    if (!gameOverFont.loadFromFile("font/StrangerNight.ttf"))
+    {
+        cout << "ERROR: font/StrangerNight.ttf didn'r load" << endl;
     }
 };
 
@@ -33,8 +37,13 @@ void UI::drawScoreLabel(RenderWindow* window)
 
     stringstream s;
     
+    displayFont.setFont(font);
+    displayFont.setCharacterSize(30);
+    displayFont.setColor(Color::White);
+    displayFont.setPosition(850, 350);
     s << "00000" << endl;
     displayFont.setString(s.str());
+    window->draw(displayFont);
 
 }
 void UI::drawMapMarker(RenderWindow* window)
@@ -50,5 +59,43 @@ void UI::drawFuelLabel(RenderWindow* window)
     fuelLabel.setPosition(850,450);
     fuelLabel.setScale(3.f,3.f);
     window->draw(fuelLabel);
+
+     stringstream s;
+    
+    displayFont.setFont(font);
+    displayFont.setCharacterSize(30);
+    displayFont.setColor(Color::White);
+    displayFont.setPosition(850, 500);
+    s << "00000" << endl;
+    displayFont.setString(s.str());
+    window->draw(displayFont);
+
+}
+
+void UI::drawGameOver(RenderWindow* window)
+{
+    stringstream s;
+    
+    displayFont.setFont(gameOverFont);
+    displayFont.setCharacterSize(30);
+    displayFont.setColor(Color::Red);
+    displayFont.setPosition(512,480);
+    s << "GAME OVER" << endl;
+    displayFont.setString(s.str());
+    window->draw(displayFont);
+}
+
+void UI::drawStartMenu(RenderWindow* window)
+{
+     stringstream s;
+    
+    displayFont.setFont(gameOverFont);
+    displayFont.setCharacterSize(30);
+    displayFont.setColor(Color::Green);
+    displayFont.setPosition(512,480);
+    s << "Racing 400!!!" << endl;
+    s << "press space to start" << endl;
+    displayFont.setString(s.str());
+    window->draw(displayFont);
 }
 
