@@ -145,14 +145,11 @@ void UI::drawStartMenu(RenderWindow* window)
 }
 
 
-
-using std::cout;
-
 void UI::wait(int duration)
 {
 	this_thread::sleep_for(std::chrono::seconds(duration));
 }
-
+//nsodjsibs
 void UI::drawCountDown(RenderWindow* window)
 {
     stringstream s;
