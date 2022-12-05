@@ -20,7 +20,7 @@ void Engine::draw()
             break;
         case State::PLAYING:
             drawGameplay();
-            //UI.drawInGameUI(&m_Window);
+            UI.drawInGameUI(&m_Window);
             break;
         case State::PLAYER_DIED:
             drawGameplay();

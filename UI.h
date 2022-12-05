@@ -16,7 +16,7 @@ private:
     int fuel = 100;
     float playerRatio = 0.0;
 
-    float countdown = 8.0;
+    float countdown = 9.0;
 
     Font font;
     Font textFont;
