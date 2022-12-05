@@ -4,7 +4,7 @@
 #include "PlayerCar.h"
 #include "ObjectManager.h"
 #include "RoadManager.h"
-#include "SoundManager.h"
+#include "MusicManager.h"
 #include "Score.h"
 
 using namespace sf;
@@ -17,7 +17,7 @@ private:
 	PlayerCar player;
 	ObjectManager objectManager;
 	RenderWindow m_Window;
-	SoundManager soundManager;
+	MusicManager m_SFX;
 	Score score;
 	Text infoText;
 

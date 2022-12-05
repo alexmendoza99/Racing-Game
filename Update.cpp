@@ -31,11 +31,14 @@ void Engine::update(float dtAsSeconds)
             setState(State::PLAYING);
             countdownTimer = 4.0;
             player.engineOn();
+            m_SFX.playRacing();
+            m_SFX.playCarEngine();
         }
         objectManager.setBounds(road.getLeftBound(), road.getRightBound());
         player.setBounds(road.getLeftBound(), road.getRightBound());
         road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
         player.update(dtAsSeconds);
+        
         break;
     case State::PAUSED:
         break;
@@ -43,6 +46,7 @@ void Engine::update(float dtAsSeconds)
         objectManager.setBounds(road.getLeftBound(), road.getRightBound());
         player.setBounds(road.getLeftBound(), road.getRightBound());
         road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
+        
         if (player.isDead())
         {
             setState(State::PLAYER_DIED);

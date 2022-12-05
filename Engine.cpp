@@ -1,5 +1,5 @@
 #include "Engine.h"
-#include "SoundManager.h"
+#include "MusicManager.h"
 #include <iostream>
 #include <SFML/Audio.hpp>
 
@@ -35,16 +35,7 @@ void Engine::setState(State newState)
         break;
     case State::LEVEL_COUNTDOWN:
         player.spawn(m_Window.getSize().x / 2.0);
-        //sound test
-        soundManager.Racing();
-        //soundManager.CarEngine();
-        infoText.setString("Score: ");
-        infoText.setCharacterSize(30);
-        infoText.setColor(Color::White);
-        infoText.setPosition(10,10);
-        break;
     case State::PLAYER_DIED:
-        soundManager.Crash();
         break;
     }
 }

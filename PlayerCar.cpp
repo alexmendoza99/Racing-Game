@@ -1,9 +1,12 @@
 #include "PlayerCar.h"
 #include "TextureHolder.h"
 #include <cmath>
+#include <iostream>
 
+using namespace std;
 PlayerCar::PlayerCar()
 {
+   
     m_Speed = 0;
     m_MaxSpeed = START_MAX_SPEED;
     m_Fuel = START_MAX_FUEL;
@@ -15,7 +18,19 @@ PlayerCar::PlayerCar()
 
     // Set the origin of the sprite to the center
     m_Sprite.setOrigin(6, 10);
-    m_Sprite.setScale(4, 4);
+    m_Sprite.setScale(4, 4); 
+    /*
+    if (!explodeSB.loadFromFile("sound/Explode.wav")) {
+        cout << "ERROR: sound/Explode.wav didn't load" << endl;
+    } else {
+        explode.setBuffer(explodeSB);
+    }
+    if (powerUpSB.loadFromFile("sound/Powerup.wav")) {
+        cout << "ERROR: sound/Powerup.wav didn't load" << endl;
+    } else {
+        powerUp.setBuffer(powerUpSB);   
+    }  
+    */
 }
 
 
@@ -79,8 +94,15 @@ void PlayerCar::killHit()
 
 void PlayerCar::hit(float timeHit)
 {
+    if (bumpSB.loadFromFile("sound/Powerup.wav")) {
+        cout << "ERROR: sound/Powerup.wav didn't load" << endl;
+    } else {
+        bump.setBuffer(bumpSB);   
+    }  
+
     if (timeHit - m_LastHit > 1.0)
     {
+        bump.play();
         slip(timeHit);
     }
     else

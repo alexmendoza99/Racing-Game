@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 using namespace sf;
 
@@ -49,12 +50,23 @@ private:
 
     bool m_Dead = false;
 
+    SoundBuffer bumpSB;
+    Sound   bump;
+
 
 // All our public functions will come next
 public:
 
     PlayerCar();
+    /*
+    SoundBuffer explodeSB;
+    Sound explode;
 
+    SoundBuffer powerUpSB;
+    Sound powerUp;
+    */
+
+    
     void spawn(int start_pos);
 
     void reset();
@@ -118,4 +130,7 @@ public:
     void setDeath(bool isDead);
 
     bool isDead();
+    
+    void playCrash();
+    void playExplode();
 };

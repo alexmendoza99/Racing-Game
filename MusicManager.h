@@ -5,13 +5,12 @@
 
 using namespace sf;
 
-class SoundManager {
+class MusicManager {
 public:
-    SoundManager();
+    MusicManager();
 
-    void Racing();
-    void CarEngine();
-    void Crash();
+    void playRacing();
+    void playCarEngine();
 
 private:
     SoundBuffer racingSB;
@@ -19,9 +18,4 @@ private:
 
     SoundBuffer carEngineSB;
     Sound carEngine;
-
-    SoundBuffer explodeSB;
-    Sound explode;
-
-
 };
