@@ -1,6 +1,7 @@
 #pragma once
 #include "TextureHolder.h"
 #include "SFML/Graphics.hpp"
+#include <iostream>
 #include <sstream>
 
 
@@ -12,7 +13,9 @@ private:
     int score = 0;
     int fuel;
     float playerRatio;
-    Font Font;
+    Font font;
+    Text displayFont;
+    stringstream s;
     //1
     Sprite sideMap;
     Texture textureSideMap = TextureHolder::GetTexture("Sprites/road_sidemap.png");
@@ -36,6 +39,7 @@ public:
     void drawScoreLabel(RenderWindow* window);
     void drawMapMarker(RenderWindow* window);
     void drawRightSide(RenderWindow* window);
+    void loadText(Text& displayFont);
 
     
 };

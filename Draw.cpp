@@ -37,6 +37,10 @@ void Engine::draw()
             objectManager.drawObjects(&m_Window);
             m_Window.draw(player.getSprite());
             UI.drawSideMap(&m_Window);
+            UI.drawMapMarker(&m_Window);
+            UI.drawRightSide(&m_Window);
+            UI.drawScoreLabel(&m_Window);
+            UI.drawFuelLabel(&m_Window);
             break;
 
         case State::PLAYER_DIED:
