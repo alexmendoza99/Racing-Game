@@ -38,6 +38,7 @@ void Engine::setState(State newState)
         player.spawn(m_Window.getSize().x / 2.0);
         musicManager.playRacingStart();
         musicManager.playCarEngine();
+        
         break;
     case State::PLAYING:
         musicManager.playRacing();

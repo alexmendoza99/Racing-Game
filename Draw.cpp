@@ -24,6 +24,7 @@ void Engine::draw()
             }
             m_Window.draw(player.getSprite());
             objectManager.drawObjects(&m_Window);
+            UI.drawCountDown(&m_Window);
             break;
 
         case State::PAUSED:

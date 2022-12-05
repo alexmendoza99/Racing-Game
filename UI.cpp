@@ -1,6 +1,6 @@
 
 #include "UI.h"
-
+#include <cmath>
 using namespace std;
 using namespace sf;
 
@@ -132,3 +132,78 @@ void UI::drawStartMenu(RenderWindow* window)
     window->draw(displayTextFont);
 }
 
+void UI::drawCountDown(RenderWindow* window)
+{
+    /*
+    Clock clock;
+    int countdown = 3;
+
+    //convert countdown to a string
+    string countdownString;
+    ostringstream convert;
+    convert << countdown;
+    countdownString = convert.str();
+
+    //LOAD FONT AND TEXT
+    sf::Text displayFont;
+    displayFont.setFont(font);
+    displayFont.setString(countdownString);
+    displayFont.setPosition(10, 0);
+    displayFont.setCharacterSize(40);
+
+    int timer = clock.getElapsedTime().asSeconds();
+    cout << timer << std::endl;
+    if (timer > 0) 
+    {
+        countdown--;
+                    
+        displayTextFont.setString(to_string(countdown) );
+                    clock.restart();
+    }
+    */
+  
+	displayFont.setFont(font);
+	displayFont.setString("00");
+	displayFont.setCharacterSize(300);
+	displayFont.setFillColor(sf::Color::White);
+  // Text Position //
+	displayFont.setPosition(200,280);
+
+	// Timer Variables //
+	sf::Clock clock;
+	float duration = 20.0f;
+	float fSeconds;
+	int intSeconds;
+
+	sf::String stringSeconds;
+	sf::String timerString;
+    Time time = clock.restart();
+		// Timer Countdown //
+	while (duration > 0) {
+			// Calculate countdown
+			duration -= time.asSeconds();
+		
+			// Change float to int
+			intSeconds = static_cast<int>(fSeconds);
+		
+			// Change int to string 
+			
+			stringSeconds =std::to_string(intSeconds);
+
+           
+
+
+			if (intSeconds <= 0) {
+				stringSeconds = "00"; 
+			}
+			else if (intSeconds < 10) {
+				stringSeconds = "0" + stringSeconds; 
+			}
+
+			timerString = stringSeconds;
+			displayFont.setString(timerString); 
+            window->draw(displayFont);
+            duration--;
+		}
+   
+}
