@@ -144,33 +144,40 @@ void UI::drawStartMenu(RenderWindow* window)
     window->draw(displayFont); 
 }
 
-
-void UI::wait(int duration)
-{
-	this_thread::sleep_for(std::chrono::seconds(duration));
-}
-//nsodjsibs
 void UI::drawCountDown(RenderWindow* window)
 {
+    Clock clock;
     stringstream s;
     
     displayFont.setFont(font);
     displayFont.setCharacterSize(100);
     displayFont.setColor(Color::White);
     displayFont.setPosition(200,280);
+    
+    if (countdown > 2)
+    {
+        s << "3" << endl;
+        displayFont.setString(s.str());
+        window->draw(displayFont);
+        s.clear();
+    }
+    else if (countdown > 1)
+    {
+        s << "2" << endl;
+        displayFont.setString(s.str());
+        window->draw(displayFont);
+        s.clear();
+    }
+    else if (countdown > 0)
+    {
+        s << "1" << endl;
+        displayFont.setString(s.str());
+        window->draw(displayFont);
+        s.clear();
+    }
+}
 
-    s << "3" << endl;
-    displayFont.setString(s.str());
-    window->draw(displayFont);
-    s.clear();
-
-    s << "2" << endl;
-    displayFont.setString(s.str());
-    window->draw(displayFont);
-    s.clear();
-
-    s << "1" << endl;
-    displayFont.setString(s.str());
-    window->draw(displayFont);
-    s.clear();
+void UI::updateCountDown(float dtAsSeconds)
+{
+    countdown -= dtAsSeconds;
 }

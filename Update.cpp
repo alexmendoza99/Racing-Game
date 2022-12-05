@@ -33,7 +33,7 @@ void Engine::update(float dtAsSeconds)
         player.setBounds(road.getLeftBound(), road.getRightBound());
         road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
         player.update(dtAsSeconds);
-        
+        UI.updateCountDown(dtAsSeconds);
         break;
     case State::PAUSED:
         break;

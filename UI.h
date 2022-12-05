@@ -16,6 +16,8 @@ private:
     int fuel = 100;
     float playerRatio = 0.0;
 
+    float countdown = 8.0;
+
     Font font;
     Font textFont;
     Font gameOverFont;
@@ -48,5 +50,5 @@ public:
     void drawStartMenu(RenderWindow* window);
     void drawGameWon(RenderWindow* window);
     void drawCountDown(RenderWindow* window);
-    void wait(int duration);
+    void updateCountDown(float dtAsSeconds);
 };
