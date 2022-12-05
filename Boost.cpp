@@ -15,7 +15,6 @@ Boost::Boost()
 
 void Boost::collide(float gameTime, PlayerCar* player)
 {
-    cout << "COLLIDE WITH BOOST" << endl;
     player->upgradeSpeed();
     m_Alive = false;
 }

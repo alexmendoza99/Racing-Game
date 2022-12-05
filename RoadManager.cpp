@@ -35,7 +35,6 @@ void RoadManager::reset()
 		}
 		float tileHeight = m_RoadTiles[i]->getSprite().getLocalBounds().height;
 		heightCounter -= tileHeight * 3.99;
-		cout << heightCounter << endl;
 		m_RoadTiles[i]->setPosition(Vector2f(0, heightCounter));
 	}
 }

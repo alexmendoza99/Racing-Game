@@ -18,7 +18,6 @@ EnemyTruck::EnemyTruck()
 
 void EnemyTruck::collide(float gameTime, PlayerCar* player)
 {
-    cout << "COLLIDE WITH TRUCK" << endl;
     m_Alive = false;
     player->hit(gameTime);
 }

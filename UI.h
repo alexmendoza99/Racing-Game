@@ -11,28 +11,27 @@ using namespace std;
 class UI{
 private:
     int score = 0;
-    int fuel;
-    float playerRatio;
+    int fuel = 100;
+    float playerRatio = 0.0;
+
     Font font;
     Font textFont;
+    Font gameOverFont;
+
     Text displayFont;
     Text displayTextFont;
+
     stringstream s;
-    //1
+
     Sprite sideMap;
-    Texture textureSideMap = TextureHolder::GetTexture("Sprites/road_sidemap.png");
-    //2
+
     Sprite fuelLabel;
-    Texture textureFuelLabel = TextureHolder::GetTexture("Sprites/fuel_label.png");
-    //3
+
     Sprite scoreLabel;
-    Texture texturescoreLabel = TextureHolder::GetTexture("Sprites/score_label.png");
-    //4
+
     Sprite mapMarker;
-    Texture textureMapMarker = TextureHolder::GetTexture("Sprites/sidemap_marker.png");
-    //5
+
     Sprite rightSide;
-    Texture textureRightSide = TextureHolder::GetTexture("Sprites/ui_right_backing.png");
 
 public:
     UI();
@@ -41,11 +40,13 @@ public:
     void drawScoreLabel(RenderWindow* window);
     void drawMapMarker(RenderWindow* window);
     void drawRightSide(RenderWindow* window);
+
+    void drawInGameUI(RenderWindow* window);
     void drawGameOver(RenderWindow* window);
     void drawStartMenu(RenderWindow* window);
     void drawGameWon(RenderWindow* window);
     //need to code still
-    void drawCountDown(RenderWindow* window);
+    // void drawCountDown(RenderWindow* window);
 
     
 };

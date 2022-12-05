@@ -15,7 +15,6 @@ Rock::Rock()
 
 void Rock::collide(float gameTime, PlayerCar* player)
 {
-    cout << "COLLIDE WITH ROCK" << endl;
     m_Alive = false;
     player->killHit();
 }

@@ -23,9 +23,6 @@ void Engine::update(float dtAsSeconds)
         break;
     case State::LEVEL_COUNTDOWN:
         countdownTimer -= dtAsSeconds;
-
-        cout << ceil(countdownTimer) << endl;
-
         if (countdownTimer <= 0)
         {
             setState(State::PLAYING);

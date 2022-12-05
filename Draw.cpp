@@ -6,47 +6,36 @@ using namespace std;
 
 void Engine::draw()
 {
-
     m_Window.clear(Color::Black);
 
     // State Specific Updates
+    cout << (int)state << endl;
     switch (state)
     {
         case State::MAIN_MENU:
             UI.drawStartMenu(&m_Window);
             break;
-
         case State::LEVEL_COUNTDOWN:
-            m_Window.clear(Color(0, 100, 0, 255));
             for (Sprite sprite : road.getSprites())
             {
                 m_Window.draw(sprite);
             }
             m_Window.draw(player.getSprite());
             objectManager.drawObjects(&m_Window);
-            UI.drawCountDown(&m_Window);
+            //UI.drawCountDown(&m_Window);
             break;
-
         case State::PAUSED:
             break;
-
         case State::PLAYING:
-            m_Window.clear(Color(0, 100, 0, 255));
             for (Sprite sprite : road.getSprites())
             {
                 m_Window.draw(sprite);
             }
             objectManager.drawObjects(&m_Window);
             m_Window.draw(player.getSprite());
-            UI.drawSideMap(&m_Window);
-            UI.drawMapMarker(&m_Window);
-            UI.drawRightSide(&m_Window);
-            UI.drawScoreLabel(&m_Window);
-            UI.drawFuelLabel(&m_Window);
+            UI.drawInGameUI(&m_Window);
             break;
-
         case State::PLAYER_DIED:
-            m_Window.clear(Color(0, 100, 0, 255));
             for (Sprite sprite : road.getSprites())
             {
                 m_Window.draw(sprite);
@@ -54,9 +43,7 @@ void Engine::draw()
             objectManager.drawObjects(&m_Window);
             UI.drawGameOver(&m_Window);
             break;
-
         case State::LEVEL_WON:
-            m_Window.clear(Color(0, 100, 0, 255));
             for (Sprite sprite : road.getSprites())
             {
                 m_Window.draw(sprite);
@@ -64,15 +51,11 @@ void Engine::draw()
             objectManager.drawObjects(&m_Window);
             m_Window.draw(player.getSprite());
             break;
-
         case State::GAME_OVER:
-           
             break;
-
         case State::GAME_WON:
             UI.drawGameWon(&m_Window);
             break;
-
     }
 
     m_Window.display();
