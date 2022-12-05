@@ -3,6 +3,8 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <sstream>
+#include <chrono>
+#include <thread>
 
 
 using namespace sf;
@@ -45,8 +47,6 @@ public:
     void drawGameOver(RenderWindow* window);
     void drawStartMenu(RenderWindow* window);
     void drawGameWon(RenderWindow* window);
-    //need to code still
-    // void drawCountDown(RenderWindow* window);
-
-    
+    void drawCountDown(RenderWindow* window);
+    void wait(int duration);
 };
