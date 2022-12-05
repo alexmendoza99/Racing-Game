@@ -86,9 +86,9 @@ void UI::drawGameOver(RenderWindow* window)
 
 
     displayTextFont.setFont(textFont);
-    displayTextFont.setCharacterSize(80);
+    displayTextFont.setCharacterSize(70);
     displayTextFont.setColor(Color::Red);
-    displayTextFont.setPosition(150,500);
+    displayTextFont.setPosition(100,500);
     sB << "press space to play again" << endl;
     displayTextFont.setString(sB.str());
     window->draw(displayTextFont);
