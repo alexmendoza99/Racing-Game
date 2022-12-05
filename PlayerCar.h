@@ -58,13 +58,12 @@ private:
 public:
 
     PlayerCar();
-    /*
+
     SoundBuffer explodeSB;
     Sound explode;
 
     SoundBuffer powerUpSB;
     Sound powerUp;
-    */
 
     
     void spawn(int start_pos);

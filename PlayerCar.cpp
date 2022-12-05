@@ -19,19 +19,20 @@ PlayerCar::PlayerCar()
     // Set the origin of the sprite to the center
     m_Sprite.setOrigin(6, 10);
     m_Sprite.setScale(4, 4); 
-    /*
-    if (!explodeSB.loadFromFile("sound/Explode.wav")) {
+
+    if (!explodeSB.loadFromFile("Sound/Explode.wav")) {
         cout << "ERROR: sound/Explode.wav didn't load" << endl;
     } else {
         explode.setBuffer(explodeSB);
     }
-    if (powerUpSB.loadFromFile("sound/Powerup.wav")) {
+
+    if (powerUpSB.loadFromFile("Sound/Powerup.wav")) {
         cout << "ERROR: sound/Powerup.wav didn't load" << endl;
     } else {
         powerUp.setBuffer(powerUpSB);   
     }  
-    */ 
-   if (bumpSB.loadFromFile("sound/Bump.wav")) {
+
+   if (bumpSB.loadFromFile("Sound/Bump.wav")) {
         cout << "ERROR: sound/Bump.wav didn't load" << endl;
     } else {
         bump.setBuffer(bumpSB);   
