@@ -23,11 +23,11 @@ MusicManager::MusicManager() {
 
 //Functions
 void MusicManager::playRacing() {
-    racing.setVolume(20);
+    racing.setVolume(0);
     racing.play();
 }
 
 void MusicManager::playCarEngine() {
-    carEngine.setVolume(100);
+    carEngine.setVolume(0);
     carEngine.play();
 }

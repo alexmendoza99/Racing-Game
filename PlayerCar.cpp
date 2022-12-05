@@ -30,7 +30,12 @@ PlayerCar::PlayerCar()
     } else {
         powerUp.setBuffer(powerUpSB);   
     }  
-    */
+    */ 
+   if (bumpSB.loadFromFile("sound/Bump.wav")) {
+        cout << "ERROR: sound/Bump.wav didn't load" << endl;
+    } else {
+        bump.setBuffer(bumpSB);   
+    }  
 }
 
 
@@ -94,14 +99,11 @@ void PlayerCar::killHit()
 
 void PlayerCar::hit(float timeHit)
 {
-    if (bumpSB.loadFromFile("sound/Powerup.wav")) {
-        cout << "ERROR: sound/Powerup.wav didn't load" << endl;
-    } else {
-        bump.setBuffer(bumpSB);   
-    }  
+   
 
     if (timeHit - m_LastHit > 1.0)
     {
+        bump.setVolume(100);
         bump.play();
         slip(timeHit);
     }
