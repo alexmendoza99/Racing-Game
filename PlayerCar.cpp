@@ -20,19 +20,19 @@ PlayerCar::PlayerCar()
     m_Sprite.setOrigin(6, 10);
     m_Sprite.setScale(4, 4); 
 
-    if (!explodeSB.loadFromFile("Sound/Explode.wav")) {
+    if (!explodeSB.loadFromFile("sound/Explode.wav")) {
         cout << "ERROR: sound/Explode.wav didn't load" << endl;
     } else {
         explode.setBuffer(explodeSB);
     }
 
-    if (powerUpSB.loadFromFile("Sound/Powerup.wav")) {
+    if (!powerUpSB.loadFromFile("sound/Powerup.wav")) {
         cout << "ERROR: sound/Powerup.wav didn't load" << endl;
     } else {
         powerUp.setBuffer(powerUpSB);   
     }  
 
-   if (bumpSB.loadFromFile("Sound/Bump.wav")) {
+   if (!bumpSB.loadFromFile("sound/Bump.wav")) {
         cout << "ERROR: sound/Bump.wav didn't load" << endl;
     } else {
         bump.setBuffer(bumpSB);   
@@ -85,6 +85,8 @@ float PlayerCar::getLastHitTime()
 
 void PlayerCar::slip(float timeHit)
 {
+    bump.setVolume(100);
+    bump.play();
     m_Sprite.setRotation(45);
     m_LastHit = timeHit;
     slipTimer = 1.0;
@@ -104,8 +106,6 @@ void PlayerCar::hit(float timeHit)
 
     if (timeHit - m_LastHit > 1.0)
     {
-        bump.setVolume(100);
-        bump.play();
         slip(timeHit);
     }
     else
@@ -227,6 +227,9 @@ void PlayerCar::update(float elapsedTime)
 void PlayerCar::upgradeSpeed()
 {
     // 20% speed upgrade
+    powerUp.stop();
+    powerUp.setVolume(100);
+    powerUp.play();
     m_MaxSpeed += (START_MAX_SPEED * .2);
 }
 
@@ -240,6 +243,9 @@ void PlayerCar::upgradeFuel()
 
 void PlayerCar::increaseFuelLevel(int amount)
 {
+    powerUp.stop();
+    powerUp.setVolume(100);
+    powerUp.play();
     m_Fuel += amount;
 
     // But not beyond the maximum
@@ -255,6 +261,8 @@ void PlayerCar::setDeath(bool isDead)
     m_Dead = isDead;
     if (isDead)
     {
+        explode.setVolume(100);
+        explode.play();
         m_Speed = 0;
     }
 }

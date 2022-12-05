@@ -29,13 +29,21 @@ void Engine::setState(State newState)
     switch (newState)
     {
     case State::MAIN_MENU:
+        musicManager.stopRacing();
         road.reset();
         player.reset();
         objectManager.clearObjects();
         break;
     case State::LEVEL_COUNTDOWN:
         player.spawn(m_Window.getSize().x / 2.0);
+        musicManager.playRacingStart();
+        musicManager.playCarEngine();
+        break;
+    case State::PLAYING:
+        musicManager.playRacing();
+        break;
     case State::PLAYER_DIED:
+        musicManager.stopRacing();
         break;
     }
 }

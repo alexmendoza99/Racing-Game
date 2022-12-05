@@ -51,7 +51,7 @@ private:
     bool m_Dead = false;
 
     SoundBuffer bumpSB;
-    Sound   bump;
+    Sound bump;
 
 
 // All our public functions will come next

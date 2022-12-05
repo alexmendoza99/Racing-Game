@@ -9,12 +9,16 @@ class MusicManager {
 public:
     MusicManager();
 
+    void playRacingStart();
     void playRacing();
     void playCarEngine();
+    void stopRacing();
 
 private:
     SoundBuffer racingSB;
+    SoundBuffer racingStartSB;
     Sound racing;
+    Sound racingStart;
 
     SoundBuffer carEngineSB;
     Sound carEngine;

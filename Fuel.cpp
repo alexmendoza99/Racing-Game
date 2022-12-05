@@ -16,5 +16,6 @@ Fuel::Fuel()
 void Fuel::collide(float gameTime, PlayerCar* player)
 {
     cout << "COLLIDE WITH FUEL" << endl;
+    player->increaseFuelLevel(10);
     m_Alive = false;
 }

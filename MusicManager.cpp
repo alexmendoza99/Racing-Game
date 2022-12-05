@@ -5,13 +5,22 @@ using namespace sf;
 
 // Constructor
 MusicManager::MusicManager() {
-    if (!racingSB.loadFromFile("sound/Racing.wav")) {
-        std::cout << "ERROR: sound/racing.wav didn't load" << endl;
-    } else {
-        racing.setBuffer(racingSB);
-
+    if (!racingStartSB.loadFromFile("sound/StartOfRace.wav")) {
+        std::cout << "ERROR: sound/StartOfRace.wav didn't load" << endl;
     }
-    racing.setLoop(true);
+    else
+    {
+        racing.setBuffer(racingSB);
+    }
+
+    if (!racingSB.loadFromFile("sound/Racing.wav")) {
+        std::cout << "ERROR: sound/Racing.wav didn't load" << endl;
+    }
+    else
+    {
+        racingStart.setBuffer(racingStartSB);
+    }
+
     if (!carEngineSB.loadFromFile("sound/CarEngine.wav")) {
         std::cout << "ERROR: sound/CarEngine.wav didn't load" << endl;
     } else {
@@ -23,11 +32,23 @@ MusicManager::MusicManager() {
 
 //Functions
 void MusicManager::playRacing() {
-    racing.setVolume(0);
+    racing.setLoop(true);
+    racing.setVolume(100);
     racing.play();
 }
 
+void MusicManager::stopRacing() {
+    racing.stop();
+    carEngine.stop();
+}
+
+void MusicManager::playRacingStart() {
+    racingStart.setLoop(false);
+    racingStart.setVolume(100);
+    racingStart.play();
+}
+
 void MusicManager::playCarEngine() {
-    carEngine.setVolume(0);
+    carEngine.setVolume(10);
     carEngine.play();
 }

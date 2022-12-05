@@ -17,7 +17,7 @@ private:
 	PlayerCar player;
 	ObjectManager objectManager;
 	RenderWindow m_Window;
-	MusicManager m_SFX;
+	MusicManager musicManager;
 	Score score;
 	Text infoText;
 

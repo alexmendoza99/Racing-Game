@@ -31,8 +31,6 @@ void Engine::update(float dtAsSeconds)
             setState(State::PLAYING);
             countdownTimer = 9.0;
             player.engineOn();
-            m_SFX.playRacing();
-            m_SFX.playCarEngine();
         }
         objectManager.setBounds(road.getLeftBound(), road.getRightBound());
         player.setBounds(road.getLeftBound(), road.getRightBound());
