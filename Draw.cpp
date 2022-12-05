@@ -16,11 +16,11 @@ void Engine::draw()
             break;
         case State::LEVEL_COUNTDOWN:
             drawGameplay();
-            //UI.drawCountDown(&m_Window);
+            UI.drawCountDown(&m_Window);
             break;
         case State::PLAYING:
             drawGameplay();
-            UI.drawInGameUI(&m_Window);
+            //UI.drawInGameUI(&m_Window);
             break;
         case State::PLAYER_DIED:
             drawGameplay();
