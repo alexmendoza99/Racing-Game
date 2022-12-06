@@ -1,11 +1,12 @@
 #pragma once
-#include <vector>
 #include "Object.h"
 #include "PlayerCar.h"
 #include "Score.h"
+#include <vector>
 
 using namespace std;
 
+// this file defines functions, variables and enum for setting different objects
 class ObjectManager
 {
 private:

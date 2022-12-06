@@ -3,7 +3,7 @@
 using namespace std;
 using namespace sf;
 
-
+// this file draws images in the game that get called in the update function
 UI::UI(){
     sideMap = Sprite(TextureHolder::GetTexture("Sprites/road_sidemap.png"));
     fuelLabel = Sprite(TextureHolder::GetTexture("Sprites/fuel_label.png"));
@@ -160,32 +160,30 @@ void UI::drawCountDown(RenderWindow* window)
     displayFont.setPosition(486,300);
     if (countdown < 3)
     {
-    if (countdown > 2)
-    {
-        //center countdown to middle of screen
-        //highlight text to black
-        s << "3" << endl;
-        displayFont.setColor(Color::Green);
-        displayFont.setString(s.str());
-        window->draw(displayFont);
-        s.clear();
-    }
-    else if (countdown > 1)
-    {
-        s << "2" << endl;
-        displayFont.setColor(Color::Yellow);
-        displayFont.setString(s.str());
-        window->draw(displayFont);
-        s.clear();
-    }
-    else if (countdown > 0)
-    {
-        s << "1" << endl;
-        displayFont.setColor(Color::Red);
-        displayFont.setString(s.str());
-        window->draw(displayFont);
-        s.clear();
-    }
+        if (countdown > 2)
+        {
+            s << "3" << endl;
+            displayFont.setColor(Color::Green);
+            displayFont.setString(s.str());
+            window->draw(displayFont);
+            s.clear();
+        }
+        else if (countdown > 1)
+        {
+            s << "2" << endl;
+            displayFont.setColor(Color::Yellow);
+            displayFont.setString(s.str());
+            window->draw(displayFont);
+            s.clear();
+        }
+        else if (countdown > 0)
+        {
+            s << "1" << endl;
+            displayFont.setColor(Color::Red);
+            displayFont.setString(s.str());
+            window->draw(displayFont);
+            s.clear();
+        }
     }
 }
 

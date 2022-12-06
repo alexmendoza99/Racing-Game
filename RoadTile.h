@@ -1,8 +1,9 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
+#include <SFML/Graphics.hpp>
 #include <vector>
 
+// this file defines all the functions and variables used for building the sprites for road map
 class RoadTile
 {
 private:

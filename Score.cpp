@@ -1,5 +1,5 @@
-#include <SFML/Graphics.hpp>
 #include "Score.h"
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <sstream>
 #include <ctime>
@@ -7,7 +7,7 @@
 using namespace std;
 using namespace sf;
 
-
+// this file handles players score
 Score::Score()
 {
     reset();
@@ -29,8 +29,6 @@ int Score::getScore()
 void Score::updateScore(int scoreChange)
 {
     score += scoreChange;
-    if (score < 0)
-    {
-        score = 0;
-    }
+
+    if (score < 0) { score = 0; }
 }

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-
+// if the player comes in contact with the fuel sprite, player's fuel increases
 Fuel::Fuel()
 {
     yLayer = 0;
@@ -12,7 +12,7 @@ Fuel::Fuel()
     m_Sprite.setOrigin(Vector2f(m_Sprite.getTexture()->getSize().x / 2.0, m_Sprite.getTexture()->getSize().y / 2.0));
 }
 
-
+// updates score and screen presence
 int Fuel::collide(float gameTime, PlayerCar* player)
 {
     player->increaseFuelLevel(10);

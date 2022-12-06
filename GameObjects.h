@@ -1,7 +1,7 @@
 #pragma once
 #include "Object.h"
 
-
+// This file defines all objects that are interactable with the user
 class EnemyCar : public Object
 {
 private:

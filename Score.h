@@ -5,7 +5,9 @@
 using namespace std;
 using namespace sf;
 
-class Score {
+// this file defines all functions used to update player score
+class Score 
+{
 private:
     int score = 100;
 public:

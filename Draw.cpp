@@ -3,11 +3,11 @@
 
 using namespace std;
 
-
+// This file draws all of the sprites by using draw functions from UI file and draws the window
 void Engine::draw()
 {
     m_Window.clear(Color::Black);
-    // State Specific Updates
+    // State Specific Updates and when to draw certain images
     switch (state)
     {
         case State::MAIN_MENU:
@@ -36,7 +36,7 @@ void Engine::draw()
     }
     m_Window.display();
 }
-
+// draws road tiles and sprites
 void Engine::drawGameplay()
 {
     for (Sprite sprite : road.getSprites())

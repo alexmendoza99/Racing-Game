@@ -1,14 +1,14 @@
-#include <SFML/Graphics.hpp>
 #include "Engine.h"
 #include "RoadManager.h"
 #include "RoadTile.h"
 #include "TextureHolder.h"
 #include <iostream>
+#include <SFML/Graphics.hpp>
 
 using namespace sf;
 using namespace std;
 
-
+//brayden
 RoadManager::RoadManager() 
 {
 	reset();
@@ -17,22 +17,18 @@ RoadManager::RoadManager()
 
 void RoadManager::reset() 
 {
-	for (RoadTile* tile : m_RoadTiles)
-	{
-		delete tile;
-	}
-	m_RoadTiles.clear();
+	for (RoadTile* tile : m_RoadTiles) { delete tile; }
 
+	m_RoadTiles.clear();
 	m_RoadFinished = false;
-	
 	float heightCounter = SCREEN_HEIGHT;
+
 	for (int i = 0; i < 4; i++)
 	{
 		m_RoadTiles.push_back(new RoadTile());
-		if (i == 0)
-		{
-			m_RoadTiles[i]->setType(RoadTile::START);
-		}
+		
+		if (i == 0) { m_RoadTiles[i]->setType(RoadTile::START); }
+
 		float tileHeight = m_RoadTiles[i]->getSprite().getLocalBounds().height;
 		heightCounter -= tileHeight * 3.95;
 		m_RoadTiles[i]->setPosition(Vector2f(0, heightCounter));
@@ -43,10 +39,9 @@ void RoadManager::reset()
 vector<Sprite> RoadManager::getSprites()
 {
 	vector<Sprite> sprites;
-	for (RoadTile* tile : m_RoadTiles)
-	{
-		sprites.push_back(tile->getSprite());
-	}
+
+	for (RoadTile* tile : m_RoadTiles) { sprites.push_back(tile->getSprite()); }
+	
 	return sprites;
 }
 

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <sstream>
 
-
+// defines variables and functions used for display
 using namespace sf;
 using namespace std;
 
@@ -13,26 +13,18 @@ private:
     int score = 100;
     int fuel = 100;
     float playerRatio = 0.0;
-
     float countdown = 9.0;
 
     Font font;
-
     Text displayFont;
     Text displayTextFont;
-
     stringstream s;
 
     Sprite sideMap;
-
     Sprite fuelLabel;
-
     Sprite scoreLabel;
-
     Sprite mapMarker;
-
     Sprite rightSide;
-
     Sprite title;
 
 public:
@@ -43,12 +35,12 @@ public:
     void drawMapMarker(RenderWindow* window);
     void updateMapMarker(float ratio);
     void drawRightSide(RenderWindow* window);
-
     void drawInGameUI(RenderWindow* window, int score);
     void drawGameOver(RenderWindow* window);
     void drawStartMenu(RenderWindow* window);
     void drawGameWon(RenderWindow* window);
     void drawCountDown(RenderWindow* window);
+    
     void updateCountDown(float dtAsSeconds);
     void resetCountDown();
 };

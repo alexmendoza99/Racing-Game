@@ -4,7 +4,7 @@
 
 using namespace std;
 
-
+// if player comes in contact with oil sprite game speed decreases and player rotation updates
 Oil::Oil()
 {
     yLayer = 0;
@@ -14,7 +14,7 @@ Oil::Oil()
     m_Sprite.setOrigin(Vector2f(m_Sprite.getTexture()->getSize().x / 2.0, m_Sprite.getTexture()->getSize().y / 2.0));
 }
 
-
+// updates score, time, player rotation and screen presence
 int Oil::collide(float gameTime, PlayerCar* player)
 {
     if (!m_PlayerCollided)

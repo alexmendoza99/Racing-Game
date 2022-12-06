@@ -4,7 +4,7 @@
 
 using namespace sf;
 
-
+// this file sets the sprites for road tiles that build the map
 RoadTile::RoadTile()
 {
 	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/ocean_1.png"));

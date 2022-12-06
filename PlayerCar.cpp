@@ -3,17 +3,17 @@
 #include <cmath>
 #include <iostream>
 
+// brayden
 using namespace std;
+
 PlayerCar::PlayerCar()
 {
-   
     m_Speed = 0;
     m_MaxSpeed = START_MAX_SPEED;
     m_Fuel = START_MAX_FUEL;
     m_MaxFuel = START_MAX_FUEL;
 
     // Associate a texture with the sprite
-    // !!Watch this space!!
     m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/playerCar.png"));
 
     // Set the origin of the sprite to the center
@@ -102,17 +102,8 @@ void PlayerCar::killHit()
 
 void PlayerCar::hit(float timeHit)
 {
-   
-
-    if (timeHit - m_LastHit > 1.0)
-    {
-        slip(timeHit);
-    }
-    else
-    {
-        killHit();
-    }
-
+    if (timeHit - m_LastHit > 1.0) { slip(timeHit); }
+    else { killHit(); }
 }
 
 
@@ -182,61 +173,37 @@ void PlayerCar::update(float elapsedTime)
 {
     if (m_EngineOn)
     {
-        if (m_Speed < m_MaxSpeed)
-        {
-            m_Speed += 1;
-        }
+        if (m_Speed < m_MaxSpeed) { m_Speed += 1; }
     }
 
-    if (m_RightPressed)
-    {
-        m_Position.x += STEER_SPEED * elapsedTime;
-    }
+    if (m_RightPressed) { m_Position.x += STEER_SPEED * elapsedTime; }
 
-    if (m_LeftPressed)
-    {
-        m_Position.x -= STEER_SPEED * elapsedTime;
-    }
+    if (m_LeftPressed) { m_Position.x -= STEER_SPEED * elapsedTime; }
 
     m_TravelDistance += (m_Speed * elapsedTime) / 4.0;
-
+   
     m_Sprite.setPosition(m_Position);
+    if (m_Position.x < m_LeftBound) {
+        m_Position.x = m_LeftBound; }
 
-
-    if (m_Position.x < m_LeftBound)
-    {
-        m_Position.x = m_LeftBound;
-    }
-
-    if (m_Position.x > m_RightBound)
-    {
-        m_Position.x = m_RightBound;
-    }
+    if (m_Position.x > m_RightBound) { m_Position.x = m_RightBound; }
     
-    if (slipTimer > 0.0)
-    {
-        slipTimer -= elapsedTime;
-    }
-    else
-    {
-        m_Sprite.setRotation(0);
-    }
+    if (slipTimer > 0.0) { slipTimer -= elapsedTime; }
+    else { m_Sprite.setRotation(0); }
 }
 
-
+// 20% game speed upgrade
 void PlayerCar::upgradeSpeed()
 {
-    // 20% speed upgrade
     powerUp.stop();
     powerUp.setVolume(100);
     powerUp.play();
     m_MaxSpeed += (START_MAX_SPEED * .2);
 }
 
-
+// 20% max Fuel upgrade
 void PlayerCar::upgradeFuel()
 {
-    // 20% max Fuel upgrade
     m_MaxFuel += (START_MAX_FUEL * .2);
 }
 
@@ -249,10 +216,7 @@ void PlayerCar::increaseFuelLevel(int amount)
     m_Fuel += amount;
 
     // But not beyond the maximum
-    if (m_Fuel > m_MaxFuel)
-    {
-        m_Fuel = m_MaxFuel;
-    }
+    if (m_Fuel > m_MaxFuel) { m_Fuel = m_MaxFuel; }
 }
 
 

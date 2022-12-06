@@ -1,6 +1,7 @@
 #include "TextureHolder.h"
-// Include the "assert feature"
 #include <assert.h>
+
+// store and access textures
 TextureHolder* TextureHolder::m_s_Instance = nullptr;
 TextureHolder::TextureHolder()
 {
@@ -19,13 +20,10 @@ Texture& TextureHolder::GetTexture(string const& filename)
     auto keyValuePair = m.find(filename);
     // auto is equivalent of map<string, Texture>::iterator
 
-
     // Did we find a match?
     if (keyValuePair != m.end())
     {
-        // Yes
-        // Return the texture,
-        // the second part of the kvp, the texture
+        // Yes, Return the texture, the second part of the kvp, the texture
         return keyValuePair->second;
     }
     else

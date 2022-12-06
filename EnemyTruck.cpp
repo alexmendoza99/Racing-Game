@@ -4,7 +4,7 @@
 
 using namespace std;
 
-
+// This file sets all the attributes and polymorphs the collide function for enemy trucks
 EnemyTruck::EnemyTruck()
 {
     yLayer = 1;
@@ -15,7 +15,7 @@ EnemyTruck::EnemyTruck()
     else m_AICar = false;
 }
 
-
+// polymorphs the collide function and returns score value for score.h
 int EnemyTruck::collide(float gameTime, PlayerCar* player)
 {
     m_Alive = false;
@@ -23,7 +23,7 @@ int EnemyTruck::collide(float gameTime, PlayerCar* player)
     return -15;
 }
 
-
+// ??
 void EnemyTruck::update(float dtAsSeconds, PlayerCar* playerCar)
 {
     Object::update(dtAsSeconds, playerCar);
@@ -34,13 +34,11 @@ void EnemyTruck::update(float dtAsSeconds, PlayerCar* playerCar)
     {
         if (playerX > m_Position.x)
         {
-            m_Position.x = m_Position.x +
-                steerSpeed * dtAsSeconds;
+            m_Position.x = m_Position.x + steerSpeed * dtAsSeconds;
         }
         if (playerX < m_Position.x)
         {
-            m_Position.x = m_Position.x -
-                steerSpeed * dtAsSeconds;
+            m_Position.x = m_Position.x - steerSpeed * dtAsSeconds;
         }
     }
 

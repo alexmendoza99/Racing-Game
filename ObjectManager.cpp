@@ -1,13 +1,14 @@
-#include<cstdlib>
+
 #include "ObjectManager.h"
 #include "GameObjects.h"
 #include "Object.h"
 #include <iostream>
 #include <random>
+#include<cstdlib>
 
 using namespace std;
 
-
+// brayden explain
 ObjectManager::ObjectManager()
 {
 	clearObjects();
@@ -27,14 +28,12 @@ void ObjectManager::updateObjects(float dtAsSeconds, PlayerCar* player)
 	{
 		Object* object = m_Objects[i];
 		object->update(dtAsSeconds, player);
-		if (!object->m_Alive)
-		{
-			m_Objects.erase(m_Objects.begin() + i);
-		}
+
+		if (!object->m_Alive) { m_Objects.erase(m_Objects.begin() + i); }
 	}
 }
 
-
+// woah what is this fommatting. how does it work? (for and if)
 void ObjectManager::drawObjects(RenderWindow* window)
 {
 	for (Object* object : m_Objects)
@@ -54,7 +53,6 @@ void ObjectManager::manageCollisions(float gameTimer, PlayerCar* player, Score* 
 	{
 		FloatRect objectBox = object->getPosition();
 		FloatRect playerBox = player->getPosition();
-
 
 		if ((playerBox.left + playerBox.width) > objectBox.left && playerBox.left < (objectBox.left + objectBox.width))
 		{

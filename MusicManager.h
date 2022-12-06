@@ -5,6 +5,7 @@
 
 using namespace sf;
 
+// this file defines the functions and variables for music manager
 class MusicManager {
 public:
     MusicManager();

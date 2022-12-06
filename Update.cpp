@@ -7,6 +7,7 @@
 using namespace sf;
 using namespace std;
 
+// this file updates the games different states
 int frameTimer = 0;
 double spawnTimer = 0.0;
 double countdownTimer = 9.0;

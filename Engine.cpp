@@ -5,8 +5,6 @@
 
 using namespace std;
 
-Text infoText;
-
 Engine::Engine()
 {
     srand(time(NULL));
@@ -20,8 +18,7 @@ Engine::Engine()
     // Create a an SFML View for the main action
     m_MainView.setSize(resolution);
 }
-
-
+// Handles game states and music
 void Engine::setState(State newState)
 {
     state = newState;
@@ -49,8 +46,7 @@ void Engine::setState(State newState)
         break;
     }
 }
-
-
+// Runs the time of the game
 void Engine::run() 
 {
     Clock clock;

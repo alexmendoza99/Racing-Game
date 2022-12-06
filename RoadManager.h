@@ -1,14 +1,17 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+
 #include "TextureHolder.h"
-#include <vector>
 #include "PlayerCar.h"
 #include "Object.h"
 #include "RoadTile.h"
+#include <SFML/Graphics.hpp>
+#include <vector>
 
 using namespace sf;
 using namespace std;
 
+// this file defines all functions and variables for road management
+//brayden
 class RoadManager
 {
 private:

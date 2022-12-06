@@ -1,9 +1,11 @@
-#ifndef TEXTURE_HOLDER_H
-#define TEXTURE_HOLDER_H
+#pragma once
+
 #include <SFML/Graphics.hpp>
 #include <map>
+
 using namespace sf;
 using namespace std;
+
 class TextureHolder
 {
 private:
@@ -17,4 +19,3 @@ public:
     TextureHolder();
     static Texture& GetTexture(string const& filename);
 };
-#endif
