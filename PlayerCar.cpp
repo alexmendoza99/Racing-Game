@@ -69,6 +69,7 @@ void PlayerCar::reset()
 void PlayerCar::engineOn()
 {
     m_EngineOn = true;
+    if (m_Fuel < 0) { m_EngineOn = false; }
 }
 
 // Sets the left and right limits of the car (the Road Bounds)
@@ -219,7 +220,8 @@ void PlayerCar::updateFuel(float dtAsSeconds)
         m_Fuel -= (dtAsSeconds * 3);
     }
     else
-    {
+    {   
+        if (m_Fuel < 0) { m_Fuel = 0; }
         m_EngineOn = false;
     }
 }
