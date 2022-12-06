@@ -41,7 +41,7 @@ public:
     UI();
     void drawSideMap(RenderWindow* window);
     void drawFuelLabel(RenderWindow* window);
-    void drawScoreLabel(RenderWindow* window);
+    void drawScoreLabel(RenderWindow* window, int score);
     void drawMapMarker(RenderWindow* window);
     void updateMapMarker(float ratio);
     void drawRightSide(RenderWindow* window);

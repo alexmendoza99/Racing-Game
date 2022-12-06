@@ -12,6 +12,4 @@ public:
     Score();
     int setScore;
     void updateScore(int scoreChange);
-
-
 };

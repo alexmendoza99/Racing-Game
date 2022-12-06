@@ -46,7 +46,7 @@ void UI::drawInGameUI(RenderWindow* window)
 }
 
 
-void UI::drawScoreLabel(RenderWindow* window)
+void UI::drawScoreLabel(RenderWindow* window, int score)
 {
     scoreLabel.setPosition(850,300);
     scoreLabel.setScale(3.f,3.f);
@@ -58,10 +58,9 @@ void UI::drawScoreLabel(RenderWindow* window)
     displayFont.setCharacterSize(30);
     displayFont.setColor(Color::White);
     displayFont.setPosition(850, 350);
-    s << "00000" << endl;
+    s << score << endl;
     displayFont.setString(s.str());
     window->draw(displayFont);
-
 }
 
 
