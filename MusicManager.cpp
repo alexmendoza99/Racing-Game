@@ -26,7 +26,7 @@ MusicManager::MusicManager()
 void MusicManager::playRacing() 
 {
     racing.setLoop(true);
-    racing.setVolume(50);
+    racing.setVolume(80);
     racing.play();
 }
 
@@ -39,13 +39,13 @@ void MusicManager::stopRacing()
 void MusicManager::playRacingStart() 
 {
     racingStart.setLoop(false);
-    racingStart.setVolume(70);
+    racingStart.setVolume(90);
     racingStart.play();
 }
 
 void MusicManager::playCarEngine() 
 {
     carEngine.setLoop(true);
-    carEngine.setVolume(20);
+    carEngine.setVolume(25);
     carEngine.play();
 }

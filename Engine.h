@@ -14,11 +14,11 @@ using namespace sf;
 class Engine
 {
 private:
+	RenderWindow m_Window;			// for winow manipulation
 	TextureHolder th;				// stores texture 
 	RoadManager road;				// builds road map
 	PlayerCar player;				// handles player input
 	ObjectManager objectManager;	// handles object spawing and interaction
-	RenderWindow m_Window;			// for winow manipulation
 	MusicManager musicManager;		// handles audio for music
 	UI UI;							// user interface and draws different states
 	Score score;					// handles score
