@@ -3,6 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
 // defines variables and functions used for display
 using namespace sf;
@@ -36,7 +37,7 @@ public:
     void updateMapMarker(float ratio);
     void drawRightSide(RenderWindow* window);
     void drawInGameUI(RenderWindow* window, int score);
-    void drawGameOver(RenderWindow* window);
+    void drawGameOver(RenderWindow* window, int score);
     void drawStartMenu(RenderWindow* window);
     void drawGameWon(RenderWindow* window);
     void drawCountDown(RenderWindow* window);

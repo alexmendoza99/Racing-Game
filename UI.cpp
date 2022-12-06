@@ -30,7 +30,7 @@ void UI::drawSideMap(RenderWindow* window)
 
 void UI::drawRightSide(RenderWindow* window)
 {
-    rightSide.setPosition(800,0);
+    rightSide.setPosition(810,0);
     rightSide.setScale(4.f,4.f);
     window->draw(rightSide);
 }
@@ -58,7 +58,7 @@ void UI::drawScoreLabel(RenderWindow* window, int score)
     displayFont.setCharacterSize(30);
     displayFont.setColor(Color::White);
     displayFont.setPosition(850, 350);
-    s << score << endl;
+    s << setw(5) << setfill('0') << score << endl;
     displayFont.setString(s.str());
     window->draw(displayFont);
 }
@@ -87,29 +87,42 @@ void UI::drawFuelLabel(RenderWindow* window)
     fuelLabel.setScale(3.f,3.f);
     window->draw(fuelLabel);
 
-     stringstream s;
+    stringstream s;
     
     displayFont.setFont(font);
     displayFont.setCharacterSize(30);
     displayFont.setColor(Color::White);
     displayFont.setPosition(850, 500);
-    s << "00000" << endl;
+    s << setw(5) << "00000" << endl;
     displayFont.setString(s.str());
     window->draw(displayFont);
 
 }
 
 
-void UI::drawGameOver(RenderWindow* window)
+void UI::drawGameOver(RenderWindow* window, int score)
 {
-    stringstream s;
+    stringstream s1, s2;
     
     displayFont.setFont(font);
     displayFont.setCharacterSize(150);
     displayFont.setColor(Color::Red);
     displayFont.setPosition(200,280);
-    s << "GAME OVER" << endl;
-    displayFont.setString(s.str());
+    displayFont.setOutlineColor(Color::Black);
+    displayFont.setOutlineThickness(4.0);
+    s1 << "GAME OVER" << endl;
+    displayFont.setString(s1.str());
+    window->draw(displayFont);
+    
+    displayFont.setFont(font);
+    displayFont.setCharacterSize(50);
+    displayFont.setColor(Color::Red);
+    displayFont.setPosition(450, 500);
+    displayFont.setOutlineColor(Color::Black);
+    displayFont.setOutlineThickness(4.0);
+    s2 << "Score" << endl;
+    s2 << "      " << score << endl;
+    displayFont.setString(s2.str());
     window->draw(displayFont);
 }
 

@@ -24,7 +24,7 @@ void Engine::draw()
             break;
         case State::PLAYER_DIED:
             drawGameplay();
-            UI.drawGameOver(&m_Window);
+            UI.drawGameOver(&m_Window, score.getScore());
             break;
         case State::LEVEL_WON:
             drawGameplay();
