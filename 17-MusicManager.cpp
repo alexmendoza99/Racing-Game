@@ -4,7 +4,7 @@ using namespace std;
 using namespace sf;
 
 // this file loads game music and audio
-MusicManager::MusicManager() 
+MusicManager::MusicManager()
 {
     if (!racingStartSB.loadFromFile("sound/StartOfRace.wav")) {
         std::cout << "ERROR: sound/StartOfRace.wav didn't load" << endl;

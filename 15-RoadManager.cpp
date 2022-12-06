@@ -35,7 +35,7 @@ void RoadManager::reset()
 			setRoadStraight(m_RoadTiles[i]);
 		}
 		float tileHeight = m_RoadTiles[i]->getSprite().getLocalBounds().height;
-		heightCounter -= tileHeight * 3.95;
+		heightCounter -= tileHeight * 3.9;
 		m_RoadTiles[i]->setPosition(Vector2f(0, heightCounter));
 	}
 }
@@ -68,7 +68,7 @@ void RoadManager::update(float timeElapsed, float playerSpeed, float playerDista
 				setRoadFinish(newRoad);
 				m_RoadFinished = true;
 			}
-			float newTileY = previousRoad->getPosition().y - newRoad->getSprite().getLocalBounds().height * PIXEL_SIZE * 0.99;
+			float newTileY = previousRoad->getPosition().y - newRoad->getSprite().getLocalBounds().height * PIXEL_SIZE * 0.98;
 			newRoad->setPosition(Vector2f(0, newTileY));
 		}
 		tile->setPosition(tile->getPosition() + Vector2f(0, playerSpeed * timeElapsed));
