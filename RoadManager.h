@@ -19,8 +19,10 @@ private:
 	const float SCREEN_HEIGHT = 960;
 	vector<RoadTile*> m_RoadTiles;
 	bool m_RoadFinished = false;
-	float m_RoadLength = 20 * 96.0;
+	float m_RoadLength = 100 * 96.0;
 public:
+	enum BIOME_TYPE {GRASS, DESERT, OCEAN};
+	BIOME_TYPE biome = BIOME_TYPE::GRASS;
 	RoadManager();
 	void reset();
 	vector<Sprite> getSprites();
@@ -28,4 +30,7 @@ public:
 	float getLeftBound();
 	float getRightBound();
 	float getLength();
+	void setRoadStraight(RoadTile* tile);
+	void setRoadStart(RoadTile* tile);
+	void setRoadFinish(RoadTile* tile);
 };

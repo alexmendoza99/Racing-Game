@@ -12,8 +12,18 @@ private:
 	float m_LeftBound = 81 * 4;
 	float m_RightBound = 174 * 4;
 public:
-	enum TileType { START, STRAIGHT_1, FINISH };
-	TileType m_Type = TileType::STRAIGHT_1;
+	enum TileType { 
+		GRASS_START,
+		GRASS_STRAIGHT, 
+		GRASS_FINISH,
+		DESERT_START,
+		DESERT_STRAIGHT,
+		DESERT_FINISH,
+		OCEAN_START,
+		OCEAN_STRAIGHT,
+		OCEAN_FINISH
+	};
+	TileType m_Type = TileType::GRASS_STRAIGHT;
 	RoadTile();
 	RoadTile(float leftBound, float rightBound);
 	Sprite getSprite();

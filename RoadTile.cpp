@@ -45,13 +45,31 @@ void RoadTile::setType(TileType newType)
 	m_Type = newType;
 	switch (m_Type)
 	{
-	case TileType::START:
+	case TileType::GRASS_START:
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/grass_start.png"));
+		break;
+	case TileType::GRASS_FINISH:
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/grass_finish.png"));
+		break;
+	case TileType::GRASS_STRAIGHT:
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/grass_1.png"));
+		break;
+	case TileType::DESERT_START:
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/desert_start.png"));
+		break;
+	case TileType::DESERT_FINISH:
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/desert_finish.png"));
+		break;
+	case TileType::DESERT_STRAIGHT:
+		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/desert_1.png"));
+		break;
+	case TileType::OCEAN_START:
 		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/ocean_start.png"));
 		break;
-	case TileType::FINISH:
+	case TileType::OCEAN_FINISH:
 		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/ocean_finish.png"));
 		break;
-	case TileType::STRAIGHT_1:
+	case TileType::OCEAN_STRAIGHT:
 		m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/ocean_1.png"));
 		break;
 	}
