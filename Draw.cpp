@@ -29,9 +29,10 @@ void Engine::draw()
         case State::LEVEL_WON:
             drawGameplay();
             UI.drawInGameUI(&m_Window, score.getScore());
+            UI.drawGameWon(&m_Window, score.getScore());
             break;
         case State::GAME_WON:
-            UI.drawGameWon(&m_Window);
+            UI.drawGameWon(&m_Window, score.getScore());
             break;
     }
     m_Window.display();

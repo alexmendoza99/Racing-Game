@@ -44,6 +44,9 @@ void Engine::setState(State newState)
     case State::PLAYER_DIED:
         musicManager.stopRacing();
         break;
+    case State::LEVEL_WON:
+        musicManager.stopRacing();
+        break;
     }
 }
 // Runs the time of the game

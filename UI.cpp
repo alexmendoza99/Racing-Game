@@ -127,19 +127,31 @@ void UI::drawGameOver(RenderWindow* window, int score)
 }
 
 
-void UI::drawGameWon(RenderWindow* window)
+void UI::drawGameWon(RenderWindow* window, int score)
 {
-    stringstream s;
+    stringstream s1, s2;
     
     displayFont.setFont(font);
-    displayFont.setCharacterSize(30);
+    displayFont.setCharacterSize(150);
     displayFont.setColor(Color::Blue);
-    displayFont.setPosition(512,480);
-    s << "WINNER" << endl;
-    displayFont.setString(s.str());
+    displayFont.setPosition(300,280);
+    displayFont.setOutlineColor(Color::Black);
+    displayFont.setOutlineThickness(4.0);
+    s1 << "Winner" << endl;
+    displayFont.setString(s1.str());
+    window->draw(displayFont);
+    
+    displayFont.setFont(font);
+    displayFont.setCharacterSize(50);
+    displayFont.setColor(Color::Blue);
+    displayFont.setPosition(450, 500);
+    displayFont.setOutlineColor(Color::Black);
+    displayFont.setOutlineThickness(4.0);
+    s2 << "Score" << endl;
+    s2 << "      " << score << endl;
+    displayFont.setString(s2.str());
     window->draw(displayFont);
 }
-
 
 void UI::drawStartMenu(RenderWindow* window)
 {

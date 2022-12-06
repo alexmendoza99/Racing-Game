@@ -39,7 +39,7 @@ public:
     void drawInGameUI(RenderWindow* window, int score);
     void drawGameOver(RenderWindow* window, int score);
     void drawStartMenu(RenderWindow* window);
-    void drawGameWon(RenderWindow* window);
+    void drawGameWon(RenderWindow* window, int score);
     void drawCountDown(RenderWindow* window);
     
     void updateCountDown(float dtAsSeconds);
