@@ -10,13 +10,11 @@ UI::UI(){
     scoreLabel = Sprite(TextureHolder::GetTexture("Sprites/score_label.png"));
     mapMarker = Sprite(TextureHolder::GetTexture("Sprites/sidemap_marker.png"));
     rightSide = Sprite(TextureHolder::GetTexture("Sprites/ui_right_backing.png"));
+    title = Sprite(TextureHolder::GetTexture("Sprites/main_menu.png"));
 
     fuel = 100;
     playerRatio = 0.0;
     if (!font.loadFromFile("font/ARCADECLASSIC.ttf")) {
-        cout << "ERROR: font/ARCADECLASSIC.ttf didn't load" << endl;
-    }
-    if (!textFont.loadFromFile("font/ARCADECLASSIC.ttf")) {
         cout << "ERROR: font/ARCADECLASSIC.ttf didn't load" << endl;
     }
 };
@@ -24,8 +22,8 @@ UI::UI(){
 
 void UI::drawSideMap(RenderWindow* window)
 {
-    sideMap.setPosition(-10,0);
-    sideMap.setScale(4.f,4.f);
+    sideMap.setPosition(-10, 0);
+    sideMap.setScale(4.f, 4.f);
     window->draw(sideMap);
 }
 
@@ -112,7 +110,7 @@ void UI::drawGameWon(RenderWindow* window)
 {
     stringstream s;
     
-    displayFont.setFont(gameOverFont);
+    displayFont.setFont(font);
     displayFont.setCharacterSize(30);
     displayFont.setColor(Color::Blue);
     displayFont.setPosition(512,480);
@@ -124,24 +122,21 @@ void UI::drawGameWon(RenderWindow* window)
 
 void UI::drawStartMenu(RenderWindow* window)
 {
-     stringstream s1;
-     stringstream s2;
     
-    displayFont.setFont(font);
-    displayFont.setCharacterSize(100);
-    displayFont.setColor(Color::Green);
-    displayFont.setPosition(200,280);
-    s1 << "Racing 400!!!" << endl;
-    displayFont.setString(s1.str());
-    window->draw(displayFont);
+    stringstream s;
    
-    displayFont.setFont(textFont);
+    displayFont.setFont(font);
     displayFont.setCharacterSize(80);
-    displayFont.setColor(Color::Green);
-    displayFont.setPosition(150,500);
-    s2 << "press  space  to  start" << endl;
-    displayFont.setString(s2.str());
+    displayFont.setColor(Color::White);
+    displayFont.setPosition(150,700);
+    s << "press  space  to  start" << endl;
+    displayFont.setString(s.str());
+    
+    title.setPosition(0,0);
+    title.setScale(4.f,4.f);
+    window->draw(title);
     window->draw(displayFont); 
+
 }
 
 void UI::drawCountDown(RenderWindow* window)
@@ -152,11 +147,15 @@ void UI::drawCountDown(RenderWindow* window)
     displayFont.setFont(font);
     displayFont.setCharacterSize(100);
     displayFont.setColor(Color::White);
-    displayFont.setPosition(200,280);
-    
+    displayFont.setPosition(520,300);
+    if (countdown < 3)
+    {
     if (countdown > 2)
     {
+        //center countdown to middle of screen
+        //highlight text to black
         s << "3" << endl;
+        displayFont.setColor(Color::Green);
         displayFont.setString(s.str());
         window->draw(displayFont);
         s.clear();
@@ -164,6 +163,7 @@ void UI::drawCountDown(RenderWindow* window)
     else if (countdown > 1)
     {
         s << "2" << endl;
+        displayFont.setColor(Color::Yellow);
         displayFont.setString(s.str());
         window->draw(displayFont);
         s.clear();
@@ -171,13 +171,20 @@ void UI::drawCountDown(RenderWindow* window)
     else if (countdown > 0)
     {
         s << "1" << endl;
+        displayFont.setColor(Color::Red);
         displayFont.setString(s.str());
         window->draw(displayFont);
         s.clear();
+    }
     }
 }
 
 void UI::updateCountDown(float dtAsSeconds)
 {
     countdown -= dtAsSeconds;
+}
+
+void UI::resetCountDown()
+{
+    countdown = 9.0;
 }

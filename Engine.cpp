@@ -33,6 +33,7 @@ void Engine::setState(State newState)
         road.reset();
         player.reset();
         objectManager.clearObjects();
+        UI.resetCountDown();
         break;
     case State::LEVEL_COUNTDOWN:
         player.spawn(m_Window.getSize().x / 2.0);

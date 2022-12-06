@@ -13,8 +13,9 @@ Rock::Rock()
 }
 
 
-void Rock::collide(float gameTime, PlayerCar* player)
+int Rock::collide(float gameTime, PlayerCar* player)
 {
     m_Alive = false;
     player->killHit();
+    return -20;
 }

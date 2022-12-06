@@ -13,8 +13,9 @@ Boost::Boost()
 }
 
 
-void Boost::collide(float gameTime, PlayerCar* player)
+int Boost::collide(float gameTime, PlayerCar* player)
 {
     player->upgradeSpeed();
     m_Alive = false;
+    return 15;
 }
