@@ -137,12 +137,6 @@ float PlayerCar::getTravelDistance()
 }
 
 
-int PlayerCar::getFuel()
-{
-    return m_Fuel;
-}
-
-
 void PlayerCar::moveLeft()
 {
     if (m_EngineOn)
@@ -242,7 +236,7 @@ void PlayerCar::fuelResetCountDown()
 }
 
 
-int getFuel()
+int PlayerCar::getFuel()
 {
     return m_Fuel;
 }
