@@ -75,10 +75,10 @@ void UI::drawMapMarker(RenderWindow* window)
 void UI::updateMapMarker(float ratio)
 {
     float bottomScreen = 880;
-    float topScreen = 100;
+    float topScreen = 16;
     playerRatio = ratio;
     float positionY = bottomScreen - ((bottomScreen - topScreen) * ratio);
-    mapMarker.setPosition(70, positionY);
+    mapMarker.setPosition(74, positionY);
 }
 
 
@@ -154,9 +154,11 @@ void UI::drawCountDown(RenderWindow* window)
     stringstream s;
     
     displayFont.setFont(font);
+    displayFont.setOutlineColor(Color::Black);
+    displayFont.setOutlineThickness(4.0);
     displayFont.setCharacterSize(100);
     displayFont.setColor(Color::White);
-    displayFont.setPosition(520,300);
+    displayFont.setPosition(486,300);
     if (countdown < 3)
     {
     if (countdown > 2)

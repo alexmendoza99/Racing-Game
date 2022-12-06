@@ -200,8 +200,6 @@ void PlayerCar::update(float elapsedTime)
 
     m_TravelDistance += (m_Speed * elapsedTime) / 4.0;
 
-    cout << "Travel Distance: " << m_TravelDistance << endl;
-
     m_Sprite.setPosition(m_Position);
 
 

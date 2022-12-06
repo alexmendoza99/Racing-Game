@@ -8,7 +8,6 @@ void Engine::draw()
 {
     m_Window.clear(Color::Black);
     // State Specific Updates
-    cout << (int)state << endl;
     switch (state)
     {
         case State::MAIN_MENU:
@@ -29,6 +28,7 @@ void Engine::draw()
             break;
         case State::LEVEL_WON:
             drawGameplay();
+            UI.drawInGameUI(&m_Window);
             break;
         case State::GAME_WON:
             UI.drawGameWon(&m_Window);

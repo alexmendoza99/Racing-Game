@@ -48,7 +48,7 @@ int Object::getYLayer()
 
 int Object::collide(float gameTime, PlayerCar* player)
 {
-
+    return 0;
 }
 
 

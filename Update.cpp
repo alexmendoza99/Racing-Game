@@ -22,6 +22,7 @@ void Engine::update(float dtAsSeconds)
     case State::MAIN_MENU:
         break;
     case State::LEVEL_COUNTDOWN:
+        UI.updateMapMarker(player.getTravelDistance() / road.getLength());
         countdownTimer -= dtAsSeconds;
         if (countdownTimer <= 0)
         {
@@ -54,8 +55,9 @@ void Engine::update(float dtAsSeconds)
         }
         objectManager.updateObjects(dtAsSeconds, &player);
         objectManager.manageCollisions(totalGameTime, &player);
-        if (player.getTravelDistance() > road.getLength() + (m_Window.getSize().y/4.0))
+        if (player.getTravelDistance() > road.getLength() + 15)
         {
+            cout << player.getTravelDistance() << endl;
             setState(State::LEVEL_WON);
         }
         spawnTimer += dtAsSeconds;

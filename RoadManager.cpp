@@ -65,8 +65,9 @@ void RoadManager::update(float timeElapsed, float playerSpeed, float playerDista
 			RoadTile* newRoad = m_RoadTiles[m_RoadTiles.size() - 1];
 			newRoad->setType(RoadTile::STRAIGHT_1);
 
-			if (playerDistance > m_RoadLength)
+			if (playerDistance > m_RoadLength - 224)
 			{
+				cout << playerDistance << endl;
 				newRoad->setType(RoadTile::FINISH);
 				m_RoadFinished = true;
 			}
