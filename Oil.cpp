@@ -24,4 +24,5 @@ int Oil::collide(float gameTime, PlayerCar* player)
         player->slip(gameTime);
         return -5;
     }
+    return 0;
 }

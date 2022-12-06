@@ -16,24 +16,13 @@ void Engine::input()
         case State::MAIN_MENU:
             if (Keyboard::isKeyPressed(Keyboard::Space)) { setState(State::LEVEL_COUNTDOWN); }
             break;
-        case State::LEVEL_COUNTDOWN:
-            break;
-        case State::PAUSED:
-            break;
         case State::PLAYING:
+
             if (Keyboard::isKeyPressed(Keyboard::Left)) { player.moveLeft(); }
             else { player.stopLeft(); }
 
             if (Keyboard::isKeyPressed(Keyboard::Right)) { player.moveRight(); }
             else { player.stopRight(); }
-            break;
-        case State::PLAYER_DIED:
-            break;
-        case State::LEVEL_WON:
-            break;
-        case State::GAME_OVER:
-            break;
-        case State::GAME_WON:
             break;
         }
     }

@@ -59,10 +59,10 @@ void PlayerCar::reset()
     m_Dead = false;
     m_Sprite.setRotation(0);
 
-    m_Speed = 0;
+    m_Speed = 0.0;
+    m_EngineOn = false;
     m_MaxSpeed = START_MAX_SPEED;
-    m_Fuel = START_MAX_FUEL;
-    m_MaxFuel = START_MAX_FUEL;
+    m_Fuel = MAX_FUEL;
 }
 
 // Starts up the car movement
@@ -165,19 +165,28 @@ void PlayerCar::update(float elapsedTime)
     {
         if (m_Speed < m_MaxSpeed) { m_Speed += 1; }
     }
-
-    if (m_RightPressed) { m_Position.x += STEER_SPEED * elapsedTime; }
-
-    if (m_LeftPressed) { m_Position.x -= STEER_SPEED * elapsedTime; }
-
+    else
+    {
+        if (m_Speed > 0) { m_Speed -= 1; }
+        else 
+        { 
+            m_Speed = 0;
+            if (m_Fuel <= 0) { setDeath(true); }
+        }
+    }
+    if (m_RightPressed) 
+    { 
+        m_Position.x += STEER_SPEED * elapsedTime; 
+    }
+    if (m_LeftPressed) 
+    { 
+        m_Position.x -= STEER_SPEED * elapsedTime; 
+    }
     m_TravelDistance += (m_Speed * elapsedTime) / 4.0;
-   
     m_Sprite.setPosition(m_Position);
     if (m_Position.x < m_LeftBound) {
         m_Position.x = m_LeftBound; }
-
     if (m_Position.x > m_RightBound) { m_Position.x = m_RightBound; }
-    
     if (slipTimer > 0.0) { slipTimer -= elapsedTime; }
     else { m_Sprite.setRotation(0); }
 }
@@ -199,19 +208,19 @@ void PlayerCar::increaseFuelLevel(int amount)
     m_Fuel += amount;
 
     // But not beyond the maximum
-    if (m_Fuel > m_MaxFuel) { m_Fuel = m_MaxFuel; }
+    if (m_Fuel > MAX_FUEL) { m_Fuel = MAX_FUEL; }
 }
 
 
-void PlayerCar::updateFuel(int fuelChange, float dtAsSeconds)
+void PlayerCar::updateFuel(float dtAsSeconds)
 {
-    Clock Clock;
-
-    m_Fuel += fuelChange;
-
-    if (fuelCountDown > 0 )
+    if (m_Fuel > 0 )
     {
         m_Fuel -= (dtAsSeconds * 3);
+    }
+    else
+    {
+        m_EngineOn = false;
     }
 }
 

@@ -15,7 +15,11 @@ Fuel::Fuel()
 // updates score and screen presence
 int Fuel::collide(float gameTime, PlayerCar* player)
 {
-    player->increaseFuelLevel(10);
-    m_Alive = false;
-    return 10;
+    if (m_Alive)
+    {
+        player->increaseFuelLevel(10);
+        m_Alive = false;
+        return 10;
+    }
+    else return 0;
 }

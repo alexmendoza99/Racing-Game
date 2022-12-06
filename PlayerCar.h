@@ -9,7 +9,7 @@ class PlayerCar
 {
 private:
     const float START_MAX_SPEED = 850;
-    const float START_MAX_FUEL = 100;
+    const float MAX_FUEL = 100;
     const float STEER_SPEED = 500;
     const float DEFAULT_Y_POS = 700;
 
@@ -26,8 +26,7 @@ private:
     float m_LeftBound = 0;
     float m_RightBound = 1280;
 
-    int m_Fuel;             // fuel amount
-    int m_MaxFuel;
+    float m_Fuel;             // fuel amount
     float fuelCountDown = 100;
     float countdown = 30.0;
 
@@ -86,7 +85,7 @@ public:
 
     void upgradeSpeed();                //speed boost
     void increaseFuelLevel(int amount); //increase max fuel amount
-    void updateFuel(int fuelChange, float dtAsSeconds);
+    void updateFuel(float dtAsSeconds);
     void fuelUpdateCountDown(float dtAsSeconds);
     void fuelResetCountDown();
     int getFuel(); 

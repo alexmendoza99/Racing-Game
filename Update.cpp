@@ -20,10 +20,8 @@ void Engine::update(float dtAsSeconds)
     // State Specific Updates
     switch (state)
     {
-    case State::MAIN_MENU:
-        break;
     case State::LEVEL_COUNTDOWN:
-        UI.updateMapMarker(player.getTravelDistance() / road.getLength());
+        updateGameplay(dtAsSeconds);
         countdownTimer -= dtAsSeconds;
         if (countdownTimer <= 0)
         {
@@ -31,47 +29,20 @@ void Engine::update(float dtAsSeconds)
             countdownTimer = 9.0;
             player.engineOn();
         }
-        objectManager.setBounds(road.getLeftBound(), road.getRightBound());
-        player.setBounds(road.getLeftBound(), road.getRightBound());
-        road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
-        player.update(dtAsSeconds);
         UI.updateCountDown(dtAsSeconds);
-        break;
-    case State::PAUSED:
+        UI.updateMapMarker(player.getTravelDistance() / road.getLength());
         break;
     case State::PLAYING:
-        objectManager.setBounds(road.getLeftBound(), road.getRightBound());
-        player.setBounds(road.getLeftBound(), road.getRightBound());
-        road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
-        UI.updateMapMarker(player.getTravelDistance() / road.getLength());
-        if (player.isDead())
-        {
-            setState(State::PLAYER_DIED);
-        }
-        player.update(dtAsSeconds);
+        updateGameplay(dtAsSeconds);
+        player.updateFuel(dtAsSeconds);
         if (spawnTimer > 1.0)
         {
             objectManager.spawnObject();
             spawnTimer = 0;
-        }
-        objectManager.updateObjects(dtAsSeconds, &player);
-        objectManager.manageCollisions(totalGameTime, &player, &score);
-        if (player.getTravelDistance() > road.getLength() + 15)
-        {
-            cout << player.getTravelDistance() << endl;
-            setState(State::LEVEL_WON);
         }
         spawnTimer += dtAsSeconds;
         break;
     case State::PLAYER_DIED:
-        objectManager.setBounds(road.getLeftBound(), road.getRightBound());
-        player.setBounds(road.getLeftBound(), road.getRightBound());
-        road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
-        if (spawnTimer > 1.0)
-        {
-            objectManager.spawnObject();
-            spawnTimer = 0;
-        }
         objectManager.updateObjects(dtAsSeconds, &player);
         objectManager.manageCollisions(totalGameTime, &player, &score);
         gameOverTimer -= dtAsSeconds;
@@ -89,10 +60,26 @@ void Engine::update(float dtAsSeconds)
             frameTimer = 0;
         }
         break;
-    case State::GAME_OVER:
-        break;
-    case State::GAME_WON:
-        
-        break;
+    }
+}
+
+
+void Engine::updateGameplay(float dtAsSeconds)
+{
+    objectManager.setBounds(road.getLeftBound(), road.getRightBound());
+    player.setBounds(road.getLeftBound(), road.getRightBound());
+    road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
+    UI.updateMapMarker(player.getTravelDistance() / road.getLength());
+    if (player.isDead())
+    {
+        setState(State::PLAYER_DIED);
+    }
+    player.update(dtAsSeconds);
+    objectManager.updateObjects(dtAsSeconds, &player);
+    objectManager.manageCollisions(totalGameTime, &player, &score);
+    if (player.getTravelDistance() > road.getLength() + 15)
+    {
+        cout << player.getTravelDistance() << endl;
+        setState(State::LEVEL_WON);
     }
 }
