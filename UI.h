@@ -19,8 +19,6 @@ private:
     float countdown = 9.0;
 
     Font font;
-    Font textFont;
-    Font gameOverFont;
 
     Text displayFont;
     Text displayTextFont;
@@ -37,6 +35,8 @@ private:
 
     Sprite rightSide;
 
+    Sprite title;
+
 public:
     UI();
     void drawSideMap(RenderWindow* window);
@@ -52,4 +52,5 @@ public:
     void drawGameWon(RenderWindow* window);
     void drawCountDown(RenderWindow* window);
     void updateCountDown(float dtAsSeconds);
+    void resetCountDown();
 };

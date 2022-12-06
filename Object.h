@@ -22,6 +22,6 @@ public:
     FloatRect getPosition();
     Sprite getSprite();
     int getYLayer();
-    virtual void collide(float gameTime, PlayerCar* player);
+    virtual int collide(float gameTime, PlayerCar* player);
     virtual void update(float dtAsSeconds, PlayerCar* player);
 };

@@ -13,8 +13,9 @@ Fuel::Fuel()
 }
 
 
-void Fuel::collide(float gameTime, PlayerCar* player)
+int Fuel::collide(float gameTime, PlayerCar* player)
 {
     player->increaseFuelLevel(10);
     m_Alive = false;
+    return 10;
 }

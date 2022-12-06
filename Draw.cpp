@@ -17,6 +17,7 @@ void Engine::draw()
         case State::LEVEL_COUNTDOWN:
             drawGameplay();
             UI.drawCountDown(&m_Window);
+            UI.drawInGameUI(&m_Window);
             break;
         case State::PLAYING:
             drawGameplay();

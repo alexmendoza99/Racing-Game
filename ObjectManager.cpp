@@ -60,7 +60,9 @@ void ObjectManager::manageCollisions(float gameTimer, PlayerCar* player)
 		{
 			if ((playerBox.top + playerBox.height) > objectBox.top && playerBox.top < (objectBox.top + objectBox.height))
 			{
-				object->collide(gameTimer, player);
+				int scoreChange;
+				scoreChange = object->collide(gameTimer, player);
+
 			}
 		}
 	}

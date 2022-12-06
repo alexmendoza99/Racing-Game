@@ -16,10 +16,12 @@ EnemyCar::EnemyCar()
 }
 
 
-void EnemyCar::collide(float gameTime, PlayerCar* player)
+int EnemyCar::collide(float gameTime, PlayerCar* player)
 {
     m_Alive = false;
     player->hit(gameTime);
+    return -10;
+
 }
 
 

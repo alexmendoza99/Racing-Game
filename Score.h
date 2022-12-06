@@ -7,14 +7,11 @@ using namespace sf;
 
 class Score {
 private:
-    Font mainFont;
-    Text infoText;
     int score;
 public:
     Score();
-    int getScore();
-    void increaseScore();
-    void decreaseScore();
-    void displayScore(Text& text); //load text
+    int setScore;
+    void updateScore(int scoreChange);
+
 
 };
