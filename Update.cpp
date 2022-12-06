@@ -10,7 +10,7 @@ using namespace std;
 int frameTimer = 0;
 double spawnTimer = 0.0;
 double countdownTimer = 9.0;
-double gameOverTimer = 2.0;
+double gameOverTimer = 5.0;
 
 
 void Engine::update(float dtAsSeconds)
@@ -54,7 +54,7 @@ void Engine::update(float dtAsSeconds)
             spawnTimer = 0;
         }
         objectManager.updateObjects(dtAsSeconds, &player);
-        objectManager.manageCollisions(totalGameTime, &player);
+        objectManager.manageCollisions(totalGameTime, &player, &score);
         if (player.getTravelDistance() > road.getLength() + 15)
         {
             cout << player.getTravelDistance() << endl;
@@ -72,12 +72,12 @@ void Engine::update(float dtAsSeconds)
             spawnTimer = 0;
         }
         objectManager.updateObjects(dtAsSeconds, &player);
-        objectManager.manageCollisions(totalGameTime, &player);
+        objectManager.manageCollisions(totalGameTime, &player, &score);
         gameOverTimer -= dtAsSeconds;
         if (gameOverTimer <= 0.0)
         {
             setState(State::MAIN_MENU);
-            gameOverTimer = 2.0;
+            gameOverTimer = 5.0;
         }
         break;
     case State::LEVEL_WON:

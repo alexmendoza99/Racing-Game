@@ -7,9 +7,10 @@ using namespace sf;
 
 class Score {
 private:
-    int score;
+    int score = 100;
 public:
     Score();
-    int setScore;
+    void reset();
+    int getScore();
     void updateScore(int scoreChange);
 };

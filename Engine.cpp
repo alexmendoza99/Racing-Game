@@ -32,6 +32,7 @@ void Engine::setState(State newState)
         musicManager.stopRacing();
         road.reset();
         player.reset();
+        score.reset();
         objectManager.clearObjects();
         UI.resetCountDown();
         break;

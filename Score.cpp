@@ -10,11 +10,27 @@ using namespace sf;
 
 Score::Score()
 {
-    score = 0;
+    reset();
+}
+
+
+void Score::reset()
+{
+    score = 100;
+}
+
+
+int Score::getScore()
+{
+    return score;
 }
 
 
 void Score::updateScore(int scoreChange)
 {
     score += scoreChange;
+    if (score < 0)
+    {
+        score = 0;
+    }
 }

@@ -3,8 +3,6 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <sstream>
-#include <chrono>
-#include <thread>
 
 
 using namespace sf;
@@ -12,7 +10,7 @@ using namespace std;
 
 class UI{
 private:
-    int score = 0;
+    int score = 100;
     int fuel = 100;
     float playerRatio = 0.0;
 
@@ -46,7 +44,7 @@ public:
     void updateMapMarker(float ratio);
     void drawRightSide(RenderWindow* window);
 
-    void drawInGameUI(RenderWindow* window);
+    void drawInGameUI(RenderWindow* window, int score);
     void drawGameOver(RenderWindow* window);
     void drawStartMenu(RenderWindow* window);
     void drawGameWon(RenderWindow* window);

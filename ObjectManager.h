@@ -2,6 +2,7 @@
 #include <vector>
 #include "Object.h"
 #include "PlayerCar.h"
+#include "Score.h"
 
 using namespace std;
 
@@ -27,7 +28,7 @@ public:
 	void setBounds(float leftBound, float rightBound);
 	void updateObjects(float dtAsSeconds, PlayerCar* player);
 	void drawObjects(RenderWindow* window);
-	void manageCollisions(float gameTimer, PlayerCar* player);
+	void manageCollisions(float gameTimer, PlayerCar* player, Score* score);
 	void spawnObject();
 	void clearObjects();
 };

@@ -48,7 +48,7 @@ void ObjectManager::drawObjects(RenderWindow* window)
 }
 
 
-void ObjectManager::manageCollisions(float gameTimer, PlayerCar* player)
+void ObjectManager::manageCollisions(float gameTimer, PlayerCar* player, Score* score)
 {
 	for (Object* object : m_Objects)
 	{
@@ -62,7 +62,7 @@ void ObjectManager::manageCollisions(float gameTimer, PlayerCar* player)
 			{
 				int scoreChange;
 				scoreChange = object->collide(gameTimer, player);
-
+				score->updateScore(scoreChange);
 			}
 		}
 	}

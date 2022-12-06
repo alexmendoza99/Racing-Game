@@ -36,12 +36,12 @@ void UI::drawRightSide(RenderWindow* window)
 }
 
 
-void UI::drawInGameUI(RenderWindow* window)
+void UI::drawInGameUI(RenderWindow* window, int score)
 {
     drawSideMap(window);
     drawMapMarker(window);
     drawRightSide(window);
-    drawScoreLabel(window);
+    drawScoreLabel(window, score);
     drawFuelLabel(window);
 }
 
