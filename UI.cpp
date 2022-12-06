@@ -69,9 +69,18 @@ void UI::drawScoreLabel(RenderWindow* window)
 
 void UI::drawMapMarker(RenderWindow* window)
 {
-    //mapMarker.setPosition(player->getPosition());
-    mapMarker.setScale(2.f,2.f);
+    mapMarker.setScale(4.f,4.f);
     window->draw(mapMarker);
+}
+
+
+void UI::updateMapMarker(float ratio)
+{
+    float bottomScreen = 880;
+    float topScreen = 100;
+    playerRatio = ratio;
+    float positionY = bottomScreen - ((bottomScreen - topScreen) * ratio);
+    mapMarker.setPosition(70, positionY);
 }
 
 

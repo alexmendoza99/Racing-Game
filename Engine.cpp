@@ -38,7 +38,6 @@ void Engine::setState(State newState)
         player.spawn(m_Window.getSize().x / 2.0);
         musicManager.playRacingStart();
         musicManager.playCarEngine();
-        
         break;
     case State::PLAYING:
         musicManager.playRacing();
@@ -57,7 +56,6 @@ void Engine::run()
     {
         Time dt = clock.restart();
         float dtAsSeconds = dt.asSeconds();
-
         input();
         update(dtAsSeconds);
         draw();

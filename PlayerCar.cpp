@@ -18,7 +18,7 @@ PlayerCar::PlayerCar()
 
     // Set the origin of the sprite to the center
     m_Sprite.setOrigin(6, 10);
-    m_Sprite.setScale(4, 4); 
+    m_Sprite.setScale(4, 4);
 
     if (!explodeSB.loadFromFile("sound/Explode.wav")) {
         cout << "ERROR: sound/Explode.wav didn't load" << endl;
@@ -198,7 +198,9 @@ void PlayerCar::update(float elapsedTime)
         m_Position.x -= STEER_SPEED * elapsedTime;
     }
 
-    m_TravelDistance += m_Speed * elapsedTime * 0.1;
+    m_TravelDistance += (m_Speed * elapsedTime) / 4.0;
+
+    cout << "Travel Distance: " << m_TravelDistance << endl;
 
     m_Sprite.setPosition(m_Position);
 

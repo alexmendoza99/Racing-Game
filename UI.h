@@ -43,6 +43,7 @@ public:
     void drawFuelLabel(RenderWindow* window);
     void drawScoreLabel(RenderWindow* window);
     void drawMapMarker(RenderWindow* window);
+    void updateMapMarker(float ratio);
     void drawRightSide(RenderWindow* window);
 
     void drawInGameUI(RenderWindow* window);

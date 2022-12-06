@@ -41,7 +41,7 @@ void Engine::update(float dtAsSeconds)
         objectManager.setBounds(road.getLeftBound(), road.getRightBound());
         player.setBounds(road.getLeftBound(), road.getRightBound());
         road.update(dtAsSeconds, player.getSpeed(), player.getTravelDistance());
-        
+        UI.updateMapMarker(player.getTravelDistance() / road.getLength());
         if (player.isDead())
         {
             setState(State::PLAYER_DIED);
@@ -54,7 +54,7 @@ void Engine::update(float dtAsSeconds)
         }
         objectManager.updateObjects(dtAsSeconds, &player);
         objectManager.manageCollisions(totalGameTime, &player);
-        if (player.getTravelDistance() > road.getLength() + 117.0)
+        if (player.getTravelDistance() > road.getLength() + (m_Window.getSize().y/4.0))
         {
             setState(State::LEVEL_WON);
         }
