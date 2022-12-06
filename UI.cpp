@@ -12,7 +12,6 @@ UI::UI(){
     rightSide = Sprite(TextureHolder::GetTexture("Sprites/ui_right_backing.png"));
     title = Sprite(TextureHolder::GetTexture("Sprites/main_menu.png"));
 
-    fuel = 100;
     playerRatio = 0.0;
     if (!font.loadFromFile("font/ARCADECLASSIC.ttf")) {
         cout << "ERROR: font/ARCADECLASSIC.ttf didn't load" << endl;
@@ -36,13 +35,13 @@ void UI::drawRightSide(RenderWindow* window)
 }
 
 
-void UI::drawInGameUI(RenderWindow* window, int score)
+void UI::drawInGameUI(RenderWindow* window, int score, int m_Fuel)
 {
     drawSideMap(window);
     drawMapMarker(window);
     drawRightSide(window);
     drawScoreLabel(window, score);
-    drawFuelLabel(window);
+    drawFuelLabel(window, m_Fuel);
 }
 
 
@@ -81,7 +80,7 @@ void UI::updateMapMarker(float ratio)
 }
 
 
-void UI::drawFuelLabel(RenderWindow* window)
+void UI::drawFuelLabel(RenderWindow* window, int m_Fuel)
 {
     fuelLabel.setPosition(850,450);
     fuelLabel.setScale(3.f,3.f);
@@ -93,7 +92,7 @@ void UI::drawFuelLabel(RenderWindow* window)
     displayFont.setCharacterSize(30);
     displayFont.setColor(Color::White);
     displayFont.setPosition(850, 500);
-    s << setw(5) << "00000" << endl;
+    s << setw(5) << m_Fuel << endl;
     displayFont.setString(s.str());
     window->draw(displayFont);
 

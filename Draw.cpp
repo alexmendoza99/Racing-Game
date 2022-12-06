@@ -16,11 +16,11 @@ void Engine::draw()
         case State::LEVEL_COUNTDOWN:
             drawGameplay();
             UI.drawCountDown(&m_Window);
-            UI.drawInGameUI(&m_Window, score.getScore());
+            UI.drawInGameUI(&m_Window, score.getScore(), m_Fuel.getFuel());
             break;
         case State::PLAYING:
             drawGameplay();
-            UI.drawInGameUI(&m_Window, score.getScore());
+            UI.drawInGameUI(&m_Window, score.getScore(), m_Fuel.getFuel());
             break;
         case State::PLAYER_DIED:
             drawGameplay();
@@ -28,7 +28,7 @@ void Engine::draw()
             break;
         case State::LEVEL_WON:
             drawGameplay();
-            UI.drawInGameUI(&m_Window, score.getScore());
+            UI.drawInGameUI(&m_Window, score.getScore(), m_Fuel.getFuel());
             UI.drawGameWon(&m_Window, score.getScore());
             break;
         case State::GAME_WON:

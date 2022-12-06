@@ -10,8 +10,8 @@ PlayerCar::PlayerCar()
 {
     m_Speed = 0;
     m_MaxSpeed = START_MAX_SPEED;
-    m_Fuel = START_MAX_FUEL;
-    m_MaxFuel = START_MAX_FUEL;
+    
+    fuelReset(); 
 
     // Associate a texture with the sprite
     m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/playerCar.png"));
@@ -207,7 +207,6 @@ void PlayerCar::upgradeFuel()
     m_MaxFuel += (START_MAX_FUEL * .2);
 }
 
-
 void PlayerCar::increaseFuelLevel(int amount)
 {
     powerUp.stop();
@@ -217,6 +216,41 @@ void PlayerCar::increaseFuelLevel(int amount)
 
     // But not beyond the maximum
     if (m_Fuel > m_MaxFuel) { m_Fuel = m_MaxFuel; }
+}
+
+
+void PlayerCar::updateFuel(int fuelChange, float dtAsSeconds)
+{
+    Clock Clock;
+
+    m_Fuel += fuelChange;
+
+    if (fuelCountDown > 0 )
+    {
+        m_Fuel -= (dtAsSeconds * 3);
+    }
+}
+
+void PlayerCar::fuelUpdateCountDown(float dtAsSeconds)
+{
+    countdown -= dtAsSeconds;
+}
+
+void PlayerCar::fuelResetCountDown()
+{
+    countdown = 30.0;
+}
+
+
+int getFuel()
+{
+    return m_Fuel;
+}
+
+
+void PlayerCar::fuelReset()
+{
+    m_Fuel = 100;
 }
 
 

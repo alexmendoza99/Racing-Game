@@ -31,12 +31,12 @@ private:
 public:
     UI();
     void drawSideMap(RenderWindow* window);
-    void drawFuelLabel(RenderWindow* window);
+    void drawFuelLabel(RenderWindow* window, int m_Fuel);
     void drawScoreLabel(RenderWindow* window, int score);
     void drawMapMarker(RenderWindow* window);
     void updateMapMarker(float ratio);
     void drawRightSide(RenderWindow* window);
-    void drawInGameUI(RenderWindow* window, int score);
+    void drawInGameUI(RenderWindow* window, int score, int m_Fuel);
     void drawGameOver(RenderWindow* window, int score);
     void drawStartMenu(RenderWindow* window);
     void drawGameWon(RenderWindow* window, int score);

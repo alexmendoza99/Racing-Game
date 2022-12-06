@@ -28,6 +28,8 @@ private:
 
     int m_Fuel;             // fuel amount
     int m_MaxFuel;
+    float fuelCountDown = 100;
+    float countdown = 30.0;
 
     float m_LastHit;
 
@@ -70,7 +72,7 @@ public:
     Sprite getSprite();             // Send a copy of the sprite to main
     float getSpeed();               // Return the forward speed of the car
     float getTravelDistance();      // get player's distance traveled
-    int getFuel();                  // How much fuel player has
+                    // How much fuel player has
 
     // The next two functions move the player horizontally
     void moveLeft();
@@ -86,6 +88,11 @@ public:
     void upgradeSpeed();                //speed boost
     void upgradeFuel();                 // fuel increase
     void increaseFuelLevel(int amount); //increase max fuel amount
+    void updateFuel(int fuelChange, float dtAsSeconds);
+    void fuelUpdateCountDown(float dtAsSeconds);
+    void fuelResetCountDown();
+    int getFuel(); 
+    void fuelReset();
 
     void setDeath(bool isDead);
     bool isDead();
