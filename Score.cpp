@@ -16,7 +16,7 @@ Score::Score()
 
 void Score::reset()
 {
-    score = 100;
+    score = 0;
 }
 
 
