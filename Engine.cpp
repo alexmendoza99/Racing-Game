@@ -18,7 +18,8 @@ Engine::Engine()
     // Create a an SFML View for the main action
     m_MainView.setSize(resolution);
 }
-// Handles game states and music
+
+// Handles setting game states and music when changing states
 void Engine::setState(State newState)
 {
     state = newState;
@@ -49,7 +50,8 @@ void Engine::setState(State newState)
         break;
     }
 }
-// Runs the time of the game
+
+// Runs the main gameplay loop of the game
 void Engine::run() 
 {
     Clock clock;

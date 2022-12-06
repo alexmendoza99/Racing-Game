@@ -66,7 +66,6 @@ public:
     void slip(float timeHit);       // slip when in contact with enemy object
     void killHit();                 // instant kill
     void hit(float timeHit);        // slip and kill if slipping
-    float getLastHitTime();         // time player last hit
     FloatRect getPosition();        // player position
     Vector2f getCenter();           // get player center
     Sprite getSprite();             // Send a copy of the sprite to main
@@ -86,7 +85,6 @@ public:
     void update(float elapsedTime);
 
     void upgradeSpeed();                //speed boost
-    void upgradeFuel();                 // fuel increase
     void increaseFuelLevel(int amount); //increase max fuel amount
     void updateFuel(int fuelChange, float dtAsSeconds);
     void fuelUpdateCountDown(float dtAsSeconds);

@@ -8,20 +8,20 @@
 
 using namespace std;
 
-// brayden explain
+
 ObjectManager::ObjectManager()
 {
 	clearObjects();
 }
 
-
+// Sets the bound restrictions
 void ObjectManager::setBounds(float leftBound, float rightBound)
 {
 	m_leftBound = leftBound;
 	m_rightBound = rightBound;
 }
 
-
+// Goes througgh all the objects and calls their update functions (POLYMORPHIC)
 void ObjectManager::updateObjects(float dtAsSeconds, PlayerCar* player)
 {
 	for (int i = 0; i < m_Objects.size(); i++)
@@ -33,7 +33,7 @@ void ObjectManager::updateObjects(float dtAsSeconds, PlayerCar* player)
 	}
 }
 
-// woah what is this fommatting. how does it work? (for and if)
+// Draws the objects based off their y layer sorting (draws 0 then 1 layers. We are only using 2 layers for objects to keep simple)
 void ObjectManager::drawObjects(RenderWindow* window)
 {
 	for (Object* object : m_Objects)
@@ -46,7 +46,7 @@ void ObjectManager::drawObjects(RenderWindow* window)
 	}
 }
 
-
+// Goes through every active object and checks if it is colliding with the player. if it is call it's collide function and return a score value (POLYMORPHIC)
 void ObjectManager::manageCollisions(float gameTimer, PlayerCar* player, Score* score)
 {
 	for (Object* object : m_Objects)
@@ -66,13 +66,12 @@ void ObjectManager::manageCollisions(float gameTimer, PlayerCar* player, Score* 
 	}
 }
 
-
+// Handles spawning new objects based on a random value and object type enum
 void ObjectManager::spawnObject()
 {
 	// Get a random number
 	int randomID = rand() % 6;
 	float randomX = (float)(rand() % (int)(m_rightBound - m_leftBound)) + m_leftBound;
-
 	if (randomID == CAR)
 	{
 		EnemyCar* newEnemyCar = new EnemyCar;
@@ -111,7 +110,7 @@ void ObjectManager::spawnObject()
 	}
 }
 
-
+// Gets rid of all of the objects currently in the game
 void ObjectManager::clearObjects()
 {
 	if (m_Objects.size() > 0)

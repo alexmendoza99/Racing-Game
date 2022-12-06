@@ -7,14 +7,14 @@ using namespace sf;
 // this file sets the sprites for road tiles that build the map
 RoadTile::RoadTile()
 {
-	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/ocean_1.png"));
+	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/grass_1.png"));
 	m_Sprite.setScale(4, 4);
 }
 
 
 RoadTile::RoadTile(float leftBound, float rightBound)
 {
-	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/ocean_1.png"));
+	m_Sprite = Sprite(TextureHolder::GetTexture("Sprites/road_tiles/grass_1.png"));
 	m_Sprite.setScale(4, 4);
 	m_LeftBound = leftBound;
 	m_RightBound = rightBound;
@@ -39,7 +39,7 @@ void RoadTile::setPosition(Vector2f position)
 	m_Sprite.setPosition(position);
 }
 
-
+// Sets what type of road tile it is
 void RoadTile::setType(TileType newType)
 {
 	m_Type = newType;

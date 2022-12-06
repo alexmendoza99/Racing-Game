@@ -35,26 +35,31 @@ FloatRect Object::getPosition()
     return m_Sprite.getGlobalBounds();
 }
 
+
 Sprite Object::getSprite()
 {
     return m_Sprite;
 }
+
 
 int Object::getYLayer()
 {
     return yLayer;
 }
 
+
 // virtual function
 int Object::collide(float gameTime, PlayerCar* player)
 {
     return 0;
 }
+
+
 // virtual function
 void Object::update(float dtAsSeconds, PlayerCar* player)
 {
     m_Position.y -= (m_Speed - player->getSpeed()) * dtAsSeconds;
-    // Move the sprite
+    // Move the sprite relative to the player speed and it's speed
     m_Sprite.setPosition(m_Position);
 }
 

@@ -3,7 +3,7 @@
 #include <cmath>
 #include <iostream>
 
-// brayden
+
 using namespace std;
 
 PlayerCar::PlayerCar()
@@ -39,7 +39,7 @@ PlayerCar::PlayerCar()
     }  
 }
 
-
+// Spawns the car once the game starts by setting all important information like starting position
 void PlayerCar::spawn(int start_pos)
 {
     // Place the player in the middle of the road
@@ -49,6 +49,7 @@ void PlayerCar::spawn(int start_pos)
     m_RightPressed = false;
 }
 
+// Resets all the player values left unset
 void PlayerCar::reset()
 {
     m_Position.x = 0;
@@ -56,6 +57,7 @@ void PlayerCar::reset()
     m_TravelDistance = 0;
     m_EngineOn = false;
     m_Dead = false;
+    m_Sprite.setRotation(0);
 
     m_Speed = 0;
     m_MaxSpeed = START_MAX_SPEED;
@@ -63,26 +65,20 @@ void PlayerCar::reset()
     m_MaxFuel = START_MAX_FUEL;
 }
 
-
+// Starts up the car movement
 void PlayerCar::engineOn()
 {
     m_EngineOn = true;
 }
 
-
+// Sets the left and right limits of the car (the Road Bounds)
 void PlayerCar::setBounds(float leftBound, float rightBound)
 {
     m_LeftBound = leftBound;
     m_RightBound = rightBound;
 }
 
-
-float PlayerCar::getLastHitTime()
-{
-    return m_LastHit;
-}
-
-
+// Causes the player to slip, or reset the slip timer. Can't kill the player (for oil spills)
 void PlayerCar::slip(float timeHit)
 {
     bump.setVolume(100);
@@ -93,13 +89,13 @@ void PlayerCar::slip(float timeHit)
     m_Fuel -= 10;
 }
 
-
+// Instantly kills the player (for rocks)
 void PlayerCar::killHit()
 {
     setDeath(true);
 }
 
-
+// Calls slip if the player is in normal state and calls kill if they are slipping (this is for cars and trucks)
 void PlayerCar::hit(float timeHit)
 {
     if (timeHit - m_LastHit > 1.0) { slip(timeHit); }
@@ -195,12 +191,6 @@ void PlayerCar::upgradeSpeed()
     m_MaxSpeed += (START_MAX_SPEED * .2);
 }
 
-// 20% max Fuel upgrade
-void PlayerCar::upgradeFuel()
-{
-    m_MaxFuel += (START_MAX_FUEL * .2);
-}
-
 void PlayerCar::increaseFuelLevel(int amount)
 {
     powerUp.stop();
@@ -247,7 +237,7 @@ void PlayerCar::fuelReset()
     m_Fuel = 100;
 }
 
-
+// Makes the player big ded
 void PlayerCar::setDeath(bool isDead)
 {
     m_Dead = isDead;

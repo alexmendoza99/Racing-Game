@@ -38,7 +38,6 @@ void RoadManager::reset()
 		heightCounter -= tileHeight * 3.95;
 		m_RoadTiles[i]->setPosition(Vector2f(0, heightCounter));
 	}
-	
 }
 
 // Returns a list of the road tile sprites so they can be drawn
