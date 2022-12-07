@@ -26,14 +26,10 @@ void RoadManager::reset()
 	for (int i = 0; i < 4; i++)
 	{
 		m_RoadTiles.push_back(new RoadTile());
-		if (i == 0)
-		{
-			setRoadStart(m_RoadTiles[i]);
-		}
-		else
-		{
-			setRoadStraight(m_RoadTiles[i]);
-		}
+
+		if (i == 0) { setRoadStart(m_RoadTiles[i]); }
+		else { setRoadStraight(m_RoadTiles[i]);}
+
 		float tileHeight = m_RoadTiles[i]->getSprite().getLocalBounds().height;
 		heightCounter -= tileHeight * 3.9;
 		m_RoadTiles[i]->setPosition(Vector2f(0, heightCounter));

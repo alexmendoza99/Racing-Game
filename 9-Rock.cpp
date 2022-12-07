@@ -7,7 +7,7 @@ using namespace std;
 // if the player comes in contact with the rock sprite game ends
 Rock::Rock()
 {
-    yLayer = 1;
+    yLayer = 0;
     setSprite("Sprites/rock.png");
     m_Sprite.setOrigin(Vector2f(m_Sprite.getTexture()->getSize().x / 2.0, m_Sprite.getTexture()->getSize().y / 2.0));
 }

@@ -10,6 +10,7 @@ void Engine::input()
         // General Input - input across entire game
         if (Keyboard::isKeyPressed(Keyboard::Escape)) { m_Window.close(); }
         if (event.type == Event::Closed) { m_Window.close(); }
+
         // State Specific Input
         switch (state)
         {
